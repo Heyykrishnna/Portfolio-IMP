@@ -4,27 +4,12 @@ import RevealOnScroll from '../components/RevealOnScroll';
 import MarqueeText from '../components/MarqueeText';
 import ContactForm from '../components/ContactForm';
 import HeroCursorGlow from '../components/HeroCursorGlow';
+import KineticServices from '../components/KineticServices';
 
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  const services = [
-    {
-      num: '01',
-      title: 'Strategy',
-      desc: 'Data-informed thinking meets creative vision. I define brand positioning, audience personas, and content hierarchies that make every design decision purposeful.',
-    },
-    {
-      num: '02',
-      title: 'Web Design',
-      desc: 'From wireframes to polished interfaces, I craft digital experiences with obsessive attention to typography, spacing, motion, and interaction.',
-    },
-    {
-      num: '03',
-      title: 'Branding',
-      desc: 'Identity systems that go beyond a logo. Comprehensive visual languages built to work across every touchpoint — digital, print, and beyond.',
-    },
-  ];
+
 
   const milestones = [
     { num: '3+', label: 'Years of Experience', sub: 'Extensive industry expertise across creative disciplines.' },
@@ -137,22 +122,7 @@ export default function About() {
             <span className="tag block mb-5">Services</span>
             <h2 className="heading-lg mb-16">What I do</h2>
           </RevealOnScroll>
-          <div className="flex flex-col">
-            {services.map((s, i) => (
-              <RevealOnScroll key={s.num} delay={i * 100}>
-                <div className="grid grid-cols-1 md:grid-cols-[120px_1fr_1fr] gap-8 py-10 border-b border-black-border group">
-                  <span className="body-sm opacity-40 font-mono pt-1">{s.num}</span>
-                  <h3
-                    className="font-display font-semibold text-cream group-hover:text-gold transition-colors duration-300"
-                    style={{ fontSize: 'clamp(24px, 3vw, 40px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p className="body-lg">{s.desc}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
+          <KineticServices />
         </div>
       </section>
 
