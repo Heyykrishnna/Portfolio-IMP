@@ -75,15 +75,15 @@ export default function About() {
           >
             <div className="sm:border-r border-black-border pt-6 pr-8 pb-6">
               <p className="tag mb-2">Role</p>
-              <p className="font-display text-lg font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>Designer & Developer</p>
+              <p className="text-lg font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>Designer & Developer</p>
             </div>
             <div className="sm:border-r border-black-border sm:px-8 pt-6 pb-6">
               <p className="tag mb-2">Based in</p>
-              <p className="font-display text-lg font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>India · Remote</p>
+              <p className="text-lg font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>India · Remote</p>
             </div>
             <div className="sm:pl-8 pt-6 pb-6">
               <p className="tag mb-2">Focus</p>
-              <p className="body-lg max-w-xs">A solo designer who believes great design is both art and strategy.</p>
+              <p className="text-lg font-medium text-cream">A solo designer who believes great design is both art and strategy.</p>
             </div>
           </div>
         </div>

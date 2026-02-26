@@ -256,7 +256,7 @@ export default function Home() {
       </section>
 
       <section className="py-5">
-        <MarqueeText text="Journal · Insights · Trends · Design Thinking · Dev Notes · Creative Process · Case Studies · Industry · Perspective · Experiments · Ideas · Stories" speed={35} separator="" />
+        <MarqueeText text="Journal · Insights · Trends · Design Thinking · Dev Notes · Creative Process · Case Studies · Industry · Perspective · Experiments · Ideas · Stories" speed={100} separator="/" />
       </section>
 
       <section className="section-pad border-t border-black-border">

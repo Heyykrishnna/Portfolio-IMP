@@ -22,9 +22,9 @@ export default function Journal() {
 
         <div
           className="absolute top-[72px] left-[50%] -translate-x-[50%] font-display font-semibold leading-none select-none pointer-events-none hidden lg:block text-center"
-          style={{ fontSize: 'clamp(140px, 22vw, 320px)', letterSpacing: '-0.055em', WebkitTextStroke: '1px #1a1a1a', color: 'transparent', opacity: 0.5 }}
+          style={{ fontSize: 'clamp(140px, 22vw, 320px)', letterSpacing: '-0.055em', WebkitTextStroke: '1px #1a1a1a', color: 'transparent', opacity: 1 }}
         >
-          J
+          IDEAS
         </div>
 
         <div className="container-main relative z-10 pb-14">
@@ -66,9 +66,8 @@ export default function Journal() {
                 {['All', 'AI Design', 'Visual Design', 'Trends'].map((f, i) => (
                   <button
                     key={f}
-                    className={`text-[12px] font-medium tracking-btn uppercase transition-colors duration-300 ${
-                      i === 0 ? 'text-cream' : 'text-cream-dim hover:text-cream'
-                    }`}
+                    className={`text-[12px] font-medium tracking-btn uppercase transition-colors duration-300 ${i === 0 ? 'text-cream' : 'text-cream-dim hover:text-cream'
+                      }`}
                   >
                     {f}
                   </button>
