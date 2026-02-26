@@ -187,7 +187,7 @@ export default function Home() {
                 <span className="text-gold italic"> create impact.</span>
               </h2>
               <p className="body-lg mb-10">
-                At Yathrth, I craft designs that don't just look stunning — they create impact. Blending creativity with strategy, I transform ideas into immersive digital experiences that captivate, engage, and convert.
+                At Yatharth, I craft designs that don't just look stunning — they create impact. Blending creativity with strategy, I transform ideas into immersive digital experiences that captivate, engage, and convert.
               </p>
               <Link to="/about" className="btn-outline">Learn More</Link>
             </div>
@@ -279,31 +279,101 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-pad border-t border-black-border relative overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,168,124,0.07) 0%, transparent 70%)' }}
-        />
-        <div className="container-main relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-            <div className="gsap-fade-up">
-              <span className="tag block mb-5">contact Us.25</span>
-              <h2 className="heading-lg mb-6">get in touch</h2>
-              <p className="body-lg mb-10 max-w-md">
-                Have a project in mind? Whether you're launching a brand, designing a product, or elevating your digital presence, I'm here to bring your vision to life.
+      <section className="relative border-t border-black-border overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #080808 0%, #0f0c08 35%, #1a1208 65%, #080808 100%)' }} />
+        <div className="noise-overlay" />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,124,0.07) 0%, transparent 60%)' }} />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 100% 100%, rgba(201,168,124,0.05) 0%, transparent 60%)' }} />
+
+        <div className="container-main relative z-10 pt-20 lg:pt-32 pb-0">
+          <div className="gsap-fade-up mb-16">
+            <span className="tag block mb-6">contact Us.25</span>
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+              <h2 className="heading-xl max-w-3xl">
+                Got a project?
+                <br />
+                <em className="not-italic text-gold">Let's talk.</em>
+              </h2>
+              <p className="body-lg max-w-xs lg:max-w-sm mb-2">
+                Every great project starts with a conversation. I respond within 24 hours.
               </p>
-              <div className="flex flex-col gap-px">
-                <a href="mailto:hi@yathrth.com" className="flex items-center gap-4 py-4 border-b border-black-border group cursor-pointer">
-                  <span className="tag">Email</span>
-                  <span className="font-body text-[15px] text-cream-dim group-hover:text-cream transition-colors ml-4">hi@yathrth.com</span>
-                </a>
-                <div className="py-4 border-b border-black-border">
-                  <span className="tag">Stay connected.</span>
+            </div>
+          </div>
+
+          <div className="gsap-line-reveal w-full h-px bg-white/10 mb-0" />
+        </div>
+
+        <div className="container-main relative z-10 pt-0 pb-0">
+          <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-white/10">
+            {[
+              { label: 'Email', value: 'hi@Yatharth.com', href: 'mailto:hi@Yatharth.com' },
+              { label: 'Twitter', value: '@Yatharth', href: 'https://twitter.com' },
+              { label: 'Response', value: '< 24h', href: null },
+              { label: 'Available', value: 'Q2 2025', href: null },
+            ].map((item, i) => (
+              <div
+                key={item.label}
+                className={`py-6 ${i < 3 ? 'border-r border-white/10' : ''} ${i > 0 ? 'px-6' : 'pr-6'}`}
+              >
+                <p className="tag mb-2">{item.label}</p>
+                {item.href ? (
+                  <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer"
+                    className="font-display text-[15px] font-medium text-cream hover:text-gold transition-colors duration-300"
+                    style={{ letterSpacing: '-0.01em' }}
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="font-display text-[15px] font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>{item.value}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container-main relative z-10 py-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 lg:gap-24">
+            <div className="gsap-fade-up flex flex-col justify-between">
+              <div>
+                <p className="tag mb-8">Let's work together</p>
+                <div className="flex flex-col gap-0">
+                  {[
+                    { num: '01', label: 'Strategy & Positioning' },
+                    { num: '02', label: 'Web Design & Dev' },
+                    { num: '03', label: 'Brand Identity' },
+                    { num: '04', label: 'Motion & Interaction' },
+                  ].map(s => (
+                    <div key={s.num} className="flex items-center gap-5 py-5 border-b border-white/[0.06] group cursor-default">
+                      <span className="font-mono text-[11px] text-cream-dim opacity-30">{s.num}</span>
+                      <span
+                        className="font-display font-medium text-cream group-hover:text-gold group-hover:translate-x-2 transition-all duration-300 inline-block"
+                        style={{ fontSize: 'clamp(18px, 2.2vw, 26px)', letterSpacing: '-0.01em' }}
+                      >
+                        {s.label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
+
+              <div className="mt-12 flex items-center gap-4">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <p className="body-sm">Open to new projects for Q2 2025 onwards</p>
+              </div>
             </div>
-            <RevealOnScroll delay={150}>
-              <ContactForm />
+
+            <RevealOnScroll delay={100}>
+              <div className="border border-white/[0.08] rounded-sm p-8 lg:p-10"
+                style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(12px)' }}
+              >
+                <p className="tag mb-2">Send a message</p>
+                <h3 className="heading-sm mb-8" style={{ fontSize: 'clamp(20px, 2vw, 28px)' }}>
+                  Start the conversation.
+                </h3>
+                <ContactForm variant="home" />
+              </div>
             </RevealOnScroll>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import RevealOnScroll from '../components/RevealOnScroll';
 import MarqueeText from '../components/MarqueeText';
 import ContactForm from '../components/ContactForm';
+import HeroCursorGlow from '../components/HeroCursorGlow';
 
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -34,21 +35,57 @@ export default function About() {
 
   return (
     <main>
-      <section className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden border-b border-black-border">
+      <section className="relative min-h-[90vh] flex flex-col justify-end overflow-hidden border-b border-black-border">
         <div className="hero-bg-placeholder" />
         <div className="noise-overlay" />
+        <HeroCursorGlow size={650} intensity={0.14} />
+
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 60% 70% at 30% 50%, rgba(201,168,124,0.07) 0%, transparent 70%)' }} />
-        <div className="container-main relative z-10">
-          <div style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards', opacity: 0 }}>
-            <span className="tag block mb-5">about Us.25</span>
+          style={{ background: 'radial-gradient(ellipse 50% 70% at 15% 60%, rgba(201,168,124,0.09) 0%, transparent 65%)' }} />
+
+        <div className="absolute inset-0 grid grid-cols-3 pointer-events-none">
+          {[0,1,2].map(i => (
+            <div key={i} className="border-r border-black-border h-full opacity-30" />
+          ))}
+        </div>
+
+        <div
+          className="absolute top-[72px] right-10 font-display font-semibold leading-none select-none pointer-events-none hidden lg:flex flex-col items-end gap-1"
+          style={{ WebkitTextStroke: '1px #1e1e1e', color: 'transparent', fontSize: 'clamp(80px, 13vw, 200px)', letterSpacing: '-0.05em' }}
+        >
+          <span>US</span>
+          <span className="text-gold opacity-20" style={{ WebkitTextStroke: '1px rgba(201,168,124,0.3)' }}>.25</span>
+        </div>
+
+        <div className="absolute left-[33.33%] top-[72px] bottom-0 pointer-events-none hidden lg:flex flex-col items-center gap-3 pt-16 overflow-hidden">
+          <div className="w-px flex-1 bg-gradient-to-b from-transparent via-black-border to-transparent opacity-60" />
+        </div>
+
+        <div className="container-main relative z-10 pb-16">
+          <div className="mb-14" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
+            <span className="tag block mb-7">about Us.25</span>
+            <h1 className="heading-xl max-w-3xl">
+              About
+            </h1>
           </div>
-          <h1 className="heading-xl mb-6" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s forwards', opacity: 0 }}>
-            About
-          </h1>
-          <p className="body-lg max-w-xl" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s forwards', opacity: 0 }}>
-            A creative studio built on the belief that great design is both art and strategy.
-          </p>
+
+          <div
+            className="grid grid-cols-1 sm:grid-cols-3 border-t border-black-border"
+            style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s forwards', opacity: 0 }}
+          >
+            <div className="sm:border-r border-black-border pt-6 pr-8 pb-6">
+              <p className="tag mb-2">Role</p>
+              <p className="font-display text-lg font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>Designer & Developer</p>
+            </div>
+            <div className="sm:border-r border-black-border sm:px-8 pt-6 pb-6">
+              <p className="tag mb-2">Based in</p>
+              <p className="font-display text-lg font-medium text-cream" style={{ letterSpacing: '-0.01em' }}>India · Remote</p>
+            </div>
+            <div className="sm:pl-8 pt-6 pb-6">
+              <p className="tag mb-2">Focus</p>
+              <p className="body-lg max-w-xs">A solo designer who believes great design is both art and strategy.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -56,14 +93,14 @@ export default function About() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <RevealOnScroll>
-              <span className="tag block mb-5">Our Story</span>
+              <span className="tag block mb-5">My Story</span>
               <h2 className="heading-md mb-8">
                 Designs that don't just look stunning —
                 <span className="text-gold italic"> they create impact.</span>
               </h2>
               <div className="flex flex-col gap-5">
                 <p className="body-lg">
-                  At Yathrth, I craft designs that don't just look stunning — they create impact. Blending creativity with strategy, I transform ideas into immersive digital experiences that captivate, engage, and convert.
+                  At Yatharth, I craft designs that don't just look stunning — they create impact. Blending creativity with strategy, I transform ideas into immersive digital experiences that captivate, engage, and convert.
                 </p>
                 <p className="body-lg">
                   I collaborate with forward-thinking brands, startups, and industry leaders who dare to challenge the norm. Every project is an opportunity to push boundaries, challenge conventions, and create something that truly resonates.
@@ -146,7 +183,7 @@ export default function About() {
               <span className="tag block mb-5">Get in touch</span>
               <h2 className="heading-lg mb-6">Let's create something exceptional.</h2>
               <p className="body-lg mb-10">Have a project in mind? Let's talk. I'm always open to new collaborations.</p>
-              <a href="mailto:hi@yathrth.com" className="btn-primary">hi@yathrth.com</a>
+              <a href="mailto:hi@Yatharth.com" className="btn-primary">hi@Yatharth.com</a>
             </RevealOnScroll>
             <RevealOnScroll delay={150}>
               <ContactForm />

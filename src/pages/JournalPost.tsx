@@ -99,7 +99,7 @@ export default function JournalPost() {
                 <div className="p-7 border border-black-border rounded-sm bg-black-mid">
                   <p className="tag mb-4">About The Author</p>
                   <p className="body-sm leading-relaxed">
-                    Yathrth is a digital designer and developer focused on crafting luxury digital experiences with intention.
+                    Yatharth is a digital designer and developer focused on crafting luxury digital experiences with intention.
                   </p>
                   <Link to="/about" className="arrow-link mt-4">Learn More</Link>
                 </div>

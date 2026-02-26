@@ -2,27 +2,56 @@ import { useEffect } from 'react';
 import { journalPosts } from '../data/journal';
 import JournalCard from '../components/JournalCard';
 import RevealOnScroll from '../components/RevealOnScroll';
+import HeroCursorGlow from '../components/HeroCursorGlow';
 
 export default function Journal() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <main>
-      <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden border-b border-black-border">
+      <section className="relative min-h-[85vh] flex flex-col justify-end overflow-hidden border-b border-black-border">
         <div className="hero-bg-placeholder" />
         <div className="noise-overlay" />
+        <HeroCursorGlow size={700} intensity={0.12} />
+
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 60% 70% at 20% 60%, rgba(201,168,124,0.07) 0%, transparent 70%)' }} />
-        <div className="container-main relative z-10">
-          <div style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards', opacity: 0 }}>
-            <span className="tag block mb-5">Journal</span>
+          style={{ background: 'radial-gradient(ellipse 55% 70% at 5% 70%, rgba(201,168,124,0.09) 0%, transparent 65%)' }} />
+
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 40% 50% at 95% 30%, rgba(201,168,124,0.05) 0%, transparent 60%)' }} />
+
+        <div
+          className="absolute top-[72px] left-[50%] -translate-x-[50%] font-display font-semibold leading-none select-none pointer-events-none hidden lg:block text-center"
+          style={{ fontSize: 'clamp(140px, 22vw, 320px)', letterSpacing: '-0.055em', WebkitTextStroke: '1px #1a1a1a', color: 'transparent', opacity: 0.5 }}
+        >
+          J
+        </div>
+
+        <div className="container-main relative z-10 pb-14">
+          <div className="mb-12" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
+            <span className="tag block mb-7">Journal</span>
+            <h1 className="heading-xl">
+              Journal
+            </h1>
           </div>
-          <h1 className="heading-xl mb-6" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s forwards', opacity: 0 }}>
-            Journal
-          </h1>
-          <p className="body-lg max-w-xl" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s forwards', opacity: 0 }}>
-            Our journal is where design meets thought leadership. Insights that inspire, challenge, and push the boundaries of design.
-          </p>
+
+          <div
+            className="grid grid-cols-1 sm:grid-cols-[1fr_1fr_auto] gap-0 border-t border-black-border"
+            style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.4s forwards', opacity: 0 }}
+          >
+            <div className="sm:border-r border-black-border pt-6 pr-8 pb-4">
+              <p className="tag mb-2">Articles</p>
+              <p className="font-display text-5xl font-semibold text-gold" style={{ letterSpacing: '-0.03em' }}>{journalPosts.length}</p>
+            </div>
+            <div className="sm:px-8 pt-6 pb-4">
+              <p className="tag mb-2">About</p>
+              <p className="body-lg max-w-sm">Design meets thought leadership — insights that inspire, challenge, and push boundaries.</p>
+            </div>
+            <div className="sm:pl-8 pt-6 pb-4 flex flex-col justify-between items-start sm:items-end">
+              <p className="body-sm opacity-40 font-mono text-xs tracking-wider uppercase mb-auto pt-6">Est. 2022</p>
+              <p className="tag mt-4">Ongoing</p>
+            </div>
+          </div>
         </div>
       </section>
 

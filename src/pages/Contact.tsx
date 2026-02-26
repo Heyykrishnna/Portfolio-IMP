@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import RevealOnScroll from '../components/RevealOnScroll';
 import ContactForm from '../components/ContactForm';
+import HeroCursorGlow from '../components/HeroCursorGlow';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -29,45 +30,70 @@ export default function Contact() {
   }, []);
 
   const contactItems = [
-    { label: 'Email', value: 'hi@yathrth.com', href: 'mailto:hi@yathrth.com', sub: 'Fastest response' },
-    { label: 'Twitter', value: '@yathrth', href: 'https://twitter.com', sub: 'For quick chats' },
-    { label: 'LinkedIn', value: 'Yathrth', href: 'https://linkedin.com', sub: 'Professional network' },
-    { label: 'Dribbble', value: 'yathrth', href: 'https://dribbble.com', sub: 'Design showcase' },
+    { label: 'Email', value: 'hi@Yatharth.com', href: 'mailto:hi@Yatharth.com', sub: 'Fastest response' },
+    { label: 'Twitter', value: '@Yatharth', href: 'https://twitter.com', sub: 'For quick chats' },
+    { label: 'LinkedIn', value: 'Yatharth', href: 'https://linkedin.com', sub: 'Professional network' },
+    { label: 'Dribbble', value: 'Yatharth', href: 'https://dribbble.com', sub: 'Design showcase' },
   ];
 
   return (
     <main>
       <section
         ref={heroRef}
-        className="relative min-h-[65vh] flex items-end pb-24 overflow-hidden border-b border-black-border"
+        className="relative min-h-[90vh] flex flex-col justify-end overflow-hidden border-b border-black-border"
       >
         <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #080808 0%, #0f0b07 40%, #1a1208 70%, #080808 100%)' }} />
         <div className="noise-overlay" />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 70% at 50% 60%, rgba(201,168,124,0.1) 0%, transparent 70%)' }} />
+        <HeroCursorGlow size={750} intensity={0.15} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 30%, rgba(201,168,124,0.08) 0%, transparent 60%)' }} />
 
-        <div className="container-main relative z-10">
-          <p className="tag block mb-5" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
-            contact Us.25
-          </p>
-          <h1
-            className="heading-xl mb-6"
-            style={{ animation: 'revealIn 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards', opacity: 0 }}
-          >
-            Let's create
-            <br />
-            <em className="not-italic text-gold">together.</em>
-          </h1>
-          <p
-            className="body-lg max-w-lg"
-            style={{ animation: 'revealIn 1s cubic-bezier(0.16,1,0.3,1) 0.5s forwards', opacity: 0 }}
-          >
-            Have a project in mind? Whether you're launching a brand, designing a product, or elevating your digital presence — I'm here.
-          </p>
+        <div className="absolute inset-0 grid grid-cols-4 pointer-events-none">
+          {[0,1,2,3].map(i => (
+            <div key={i} className="border-r border-white/[0.03] h-full" />
+          ))}
         </div>
 
-        <div className="absolute bottom-8 right-8 hidden lg:flex items-center gap-3 opacity-30">
-          <div className="w-8 h-px bg-cream" />
-          <p className="body-sm text-xs tracking-[0.2em] uppercase">Scroll</p>
+        <div
+          className="absolute top-[72px] right-8 font-display font-semibold leading-none select-none pointer-events-none hidden lg:block"
+          style={{ fontSize: 'clamp(100px, 16vw, 240px)', letterSpacing: '-0.05em', WebkitTextStroke: '1px rgba(201,168,124,0.12)', color: 'transparent' }}
+        >
+          →
+        </div>
+
+        <div className="container-main relative z-10 pb-14">
+          <div className="mb-12" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
+            <span className="tag block mb-7">contact Us.25</span>
+            <h1 className="heading-xl max-w-5xl">
+              Let's create
+              <br />
+              <em className="not-italic text-gold">together.</em>
+            </h1>
+          </div>
+
+          <div
+            className="grid grid-cols-1 sm:grid-cols-4 border-t border-white/[0.08]"
+            style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s forwards', opacity: 0 }}
+          >
+            <div className="sm:border-r border-white/[0.08] pt-6 pr-6 pb-4">
+              <p className="tag mb-2">Response</p>
+              <p className="font-display text-3xl font-semibold text-gold" style={{ letterSpacing: '-0.02em' }}>24h</p>
+            </div>
+            <div className="sm:border-r border-white/[0.08] sm:px-6 pt-6 pb-4">
+              <p className="tag mb-2">Status</p>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <p className="font-body text-[14px] font-medium text-cream">Available</p>
+              </div>
+            </div>
+            <div className="sm:border-r border-white/[0.08] sm:px-6 pt-6 pb-4">
+              <p className="tag mb-2">Email</p>
+              <p className="font-body text-[14px] text-cream">hi@Yatharth.com</p>
+            </div>
+            <div className="sm:pl-6 pt-6 pb-4">
+              <p className="tag mb-2">Based in</p>
+              <p className="font-body text-[14px] text-cream">India · Remote</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -164,7 +190,7 @@ export default function Contact() {
                   From concept to launch — every pixel intentional, every interaction purposeful.
                 </p>
               </div>
-              <a href="mailto:hi@yathrth.com" className="btn-primary relative z-10 flex-shrink-0 !py-5 !px-12 text-base">
+              <a href="mailto:hi@Yatharth.com" className="btn-primary relative z-10 flex-shrink-0 !py-5 !px-12 text-base">
                 Start a Project
               </a>
             </div>

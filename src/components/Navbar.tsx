@@ -13,7 +13,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => { setMenuOpen(false); }, [location]);
-
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -35,13 +34,13 @@ export default function Navbar() {
           ? 'bg-black/90 border-black-border backdrop-blur-xl'
           : 'bg-transparent border-transparent'
       }`}>
-        <div className="container-main flex items-center justify-between gap-8 w-full">
+        <div className="container-main flex items-center justify-between gap-6 w-full">
           <Link
             to="/"
             className="font-display text-xl font-semibold tracking-tighter text-cream hover:text-gold transition-colors duration-300 flex-shrink-0"
             style={{ letterSpacing: '-0.02em' }}
           >
-            Yathrth
+            Yatharth
           </Link>
 
           <ul className="hidden md:flex items-center gap-9 list-none">
@@ -62,12 +61,11 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Link
-            to="/contact"
-            className="btn-primary hidden md:inline-flex !py-2.5 !px-6 !text-xs ml-auto"
-          >
-            Get in touch
-          </Link>
+          <div className="hidden md:flex items-center gap-3 ml-auto">
+            <Link to="/contact" className="btn-primary !py-2.5 !px-6 !text-xs">
+              Get in touch
+            </Link>
+          </div>
 
           <button
             className="md:hidden flex flex-col gap-[5px] w-8 p-1"
@@ -90,28 +88,22 @@ export default function Navbar() {
               <li
                 key={link.to}
                 className="transition-all duration-300"
-                style={{
-                  opacity: menuOpen ? 1 : 0,
-                  transform: menuOpen ? 'translateX(0)' : 'translateX(20px)',
-                  transitionDelay: `${i * 60}ms`
-                }}
+                style={{ opacity: menuOpen ? 1 : 0, transform: menuOpen ? 'translateX(0)' : 'translateX(20px)', transitionDelay: `${i * 60}ms` }}
               >
                 <Link
                   to={link.to}
                   className="flex items-center gap-4 font-display font-semibold text-cream hover:text-gold transition-colors duration-300 py-3 border-b border-black-border"
                   style={{ fontSize: 'clamp(36px, 10vw, 64px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
                 >
-                  <span className="font-body text-[13px] font-normal text-cream-dim tracking-btn uppercase">
-                    0{i + 1}
-                  </span>
+                  <span className="font-body text-[13px] font-normal text-cream-dim tracking-btn uppercase">0{i + 1}</span>
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <Link to="/contact" className="btn-primary self-start">Get in touch</Link>
-            <p className="body-sm">hi@yathrth.com</p>
+            <p className="body-sm">hi@Yatharth.com</p>
           </div>
         </div>
       </div>

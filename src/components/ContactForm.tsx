@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-export default function ContactForm() {
+interface ContactFormProps {
+  variant?: 'default' | 'home';
+}
+
+export default function ContactForm({ variant: _variant = 'default' }: ContactFormProps) {
   const [form, setForm] = useState({ firstName: '', lastName: '', email: '', phone: '' });
   const [submitted, setSubmitted] = useState(false);
 
