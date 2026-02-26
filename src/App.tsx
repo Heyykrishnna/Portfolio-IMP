@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import SmoothScroll from './components/SmoothScroll';
+import CustomCursor from './components/CustomCursor';
+import Home from './pages/Home';
+import About from './pages/About';
+import Work from './pages/Work';
+import Contact from './pages/Contact';
+import Journal from './pages/Journal';
+import JournalPost from './pages/JournalPost';
+import ProjectDetail from './pages/ProjectDetail';
+import NotFound from './pages/NotFound';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <SmoothScroll />
+      <CustomCursor />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/journal" element={<Journal />} />
+        <Route path="/journal/:slug" element={<JournalPost />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
-
-export default App
