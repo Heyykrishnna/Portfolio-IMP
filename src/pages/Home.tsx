@@ -110,7 +110,7 @@ export default function Home() {
               className="tag block mb-6"
               style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s forwards', opacity: 0 }}
             >
-              Creative Portfolio · 2025
+              Yatharth Khandelwal · 2026
             </span>
 
             <h1
@@ -140,7 +140,7 @@ export default function Home() {
             style={{ animation: 'revealIn 1s cubic-bezier(0.16,1,0.3,1) 0.75s forwards', opacity: 0 }}
           >
             <div className="flex gap-10">
-              {[{ num: '4+', label: 'Projects' }, { num: '3+', label: 'Years' }].map(s => (
+              {[{ num: '25+', label: 'Projects' }, { num: '3+', label: 'Years' }].map(s => (
                 <div key={s.label}>
                   <p className="font-display text-3xl font-semibold text-cream" style={{ letterSpacing: '-0.02em' }}>{s.num}</p>
                   <p className="body-sm mt-1">{s.label}</p>
@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       <section className="py-5">
-        <MarqueeText text="Work" speed={25} />
+        <MarqueeText text="Work · Design · Development · Branding · Full Stack · UI/UX · Motion · Strategy · Creative · Digital · Innovation · Craft" speed={100} />
       </section>
 
       <section className="section-pad border-t border-black-border">
@@ -256,7 +256,7 @@ export default function Home() {
       </section>
 
       <section className="py-5">
-        <MarqueeText text="Journal · Insights · Trends" speed={35} separator="" />
+        <MarqueeText text="Journal · Insights · Trends · Design Thinking · Dev Notes · Creative Process · Case Studies · Industry · Perspective · Experiments · Ideas · Stories" speed={35} separator="" />
       </section>
 
       <section className="section-pad border-t border-black-border">

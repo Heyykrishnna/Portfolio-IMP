@@ -127,11 +127,7 @@
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 0;
-  }
-  .btn-primary span, .btn-primary > * {
-    position: relative;
-    z-index: 1;
+    z-index: -1;
   }
   .btn-primary:hover::before {
     transform: scaleX(1);
@@ -159,7 +155,7 @@
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 0;
+    z-index: -1;
   }
   .btn-outline:hover::before {
     transform: scaleX(1);
@@ -240,11 +236,7 @@
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 0;
-  }
-  .btn-submit > * {
-    position: relative;
-    z-index: 1;
+    z-index: -1;
   }
   .btn-submit:hover::before {
     transform: scaleX(1);

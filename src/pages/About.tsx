@@ -28,7 +28,7 @@ export default function About() {
 
   const milestones = [
     { num: '3+', label: 'Years of Experience', sub: 'Extensive industry expertise across creative disciplines.' },
-    { num: '4+', label: 'Projects Completed', sub: 'Each delivered with precision and intentionality.' },
+    { num: '25+', label: 'Projects Completed', sub: 'Each delivered with precision and intentionality.' },
     { num: '100%', label: 'Client Satisfaction', sub: 'Every client engagement ends with a delighted partner.' },
     { num: '∞', label: 'Creative Drive', sub: 'Relentless passion for craft, never settling for good enough.' },
   ];
