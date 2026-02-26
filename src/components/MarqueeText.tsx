@@ -23,8 +23,8 @@ export default function MarqueeText({ text, speed = 30, separator = '·' }: Prop
             style={{
               fontSize: 'clamp(32px, 5vw, 72px)',
               letterSpacing: '-0.02em',
-              WebkitTextStroke: '1px #1e1e1e',
-              color: 'transparent',
+              WebkitTextStroke: '1.5px rgba(232,224,212,0.45)',
+              color: 'rgba(232,224,212,0.08)',
             }}
           >
             {item}
@@ -32,7 +32,7 @@ export default function MarqueeText({ text, speed = 30, separator = '·' }: Prop
               className="ml-10"
               style={{
                 WebkitTextStroke: '0',
-                color: 'rgba(201,168,124,0.5)',
+                color: 'rgba(201,168,124,0.75)',
               }}
             >
               {separator}

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { SERVICE_IMAGES } from '../data/images';
 
 interface Service {
   num: string;
@@ -13,19 +14,19 @@ const SERVICES: Service[] = [
     num: '01',
     title: 'Strategy',
     desc: 'Data-informed thinking meets creative vision. I define brand positioning, audience personas, and content hierarchies that make every design decision purposeful.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop',
+    image: SERVICE_IMAGES.strategy,
   },
   {
     num: '02',
     title: 'Web Design',
     desc: 'From wireframes to polished interfaces, I craft digital experiences with obsessive attention to typography, spacing, motion, and interaction.',
-    image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1200&auto=format&fit=crop',
+    image: SERVICE_IMAGES.webDesign,
   },
   {
     num: '03',
     title: 'Branding',
     desc: 'Identity systems that go beyond a logo. Comprehensive visual languages built to work across every touchpoint — digital, print, and beyond.',
-    image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop',
+    image: SERVICE_IMAGES.branding,
   },
 ];
 

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { Project } from '../data/projects';
+import { PROJECT_IMAGES } from '../data/images';
 
 interface Props {
   project: Project;
@@ -9,6 +10,7 @@ interface Props {
 
 export default function ProjectCard({ project, index, variant = 'default' }: Props) {
   const isFeatured = variant === 'featured';
+  const coverImage = PROJECT_IMAGES[project.slug]?.coverImage;
 
   return (
     <Link
@@ -29,6 +31,14 @@ export default function ProjectCard({ project, index, variant = 'default' }: Pro
             transition: 'transform 0.8s cubic-bezier(0.16,1,0.3,1)',
           }}
         />
+        {coverImage && (
+          <img
+            src={coverImage}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
+            style={{ transition: 'transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.5s' }}
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70" />
 
         <div

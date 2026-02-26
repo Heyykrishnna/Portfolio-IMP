@@ -5,6 +5,7 @@ import MarqueeText from '../components/MarqueeText';
 import ContactForm from '../components/ContactForm';
 import HeroCursorGlow from '../components/HeroCursorGlow';
 import KineticServices from '../components/KineticServices';
+import { ABOUT_PROFILE_IMAGE } from '../data/images';
 
 export default function About() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -99,9 +100,17 @@ export default function About() {
             <RevealOnScroll delay={150}>
               <div className="relative">
                 <div
-                  className="w-full aspect-[4/5] rounded-sm"
-                  style={{ background: 'linear-gradient(135deg, #0f0f0f 0%, #1e1710 50%, #0f0f0f 100%)' }}
-                />
+                  className="w-full aspect-[4/5] rounded-sm overflow-hidden"
+                  style={!ABOUT_PROFILE_IMAGE ? { background: 'linear-gradient(135deg, #0f0f0f 0%, #1e1710 50%, #0f0f0f 100%)' } : undefined}
+                >
+                  {ABOUT_PROFILE_IMAGE && (
+                    <img
+                      src={ABOUT_PROFILE_IMAGE}
+                      alt="Yatharth"
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                </div>
                 <div className="absolute -bottom-6 -right-6 p-6 bg-black border border-black-border rounded-sm">
                   <p className="font-display text-5xl font-semibold text-gold" style={{ letterSpacing: '-0.03em' }}>3+</p>
                   <p className="body-sm mt-1">Years crafting<br />digital excellence</p>

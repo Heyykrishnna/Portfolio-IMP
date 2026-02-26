@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { PROJECT_IMAGES } from '../data/images';
 import RevealOnScroll from '../components/RevealOnScroll';
 import ProjectCard from '../components/ProjectCard';
 
@@ -9,6 +10,9 @@ export default function ProjectDetail() {
   const project = projects.find(p => p.slug === slug);
   const other = projects.filter(p => p.slug !== slug).slice(0, 2);
   const projectIndex = projects.findIndex(p => p.slug === slug);
+  const projectImages = slug ? PROJECT_IMAGES[slug] : undefined;
+  const coverImage = projectImages?.coverImage;
+  const galleryImages = projectImages?.galleryImages ?? [];
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
@@ -18,6 +22,13 @@ export default function ProjectDetail() {
     <main>
       <section className="relative min-h-[80vh] flex items-end pb-20 overflow-hidden border-b border-black-border">
         <div className="absolute inset-0" style={{ background: project.bgGradient }} />
+        {coverImage && (
+          <img
+            src={coverImage}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover opacity-40"
+          />
+        )}
         <div className="noise-overlay" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
@@ -128,20 +139,32 @@ export default function ProjectDetail() {
             <h2 className="heading-md mb-12">Project Showcase</h2>
           </RevealOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[1, 2, 3, 4].map(n => (
-              <RevealOnScroll key={n} delay={n * 60}>
-                <div
-                  className={`rounded-sm overflow-hidden ${n === 1 ? 'md:col-span-2 h-[500px]' : 'h-[300px]'}`}
-                  style={{ background: project.bgGradient }}
-                >
-                  <div className="w-full h-full flex items-center justify-center opacity-20">
-                    <span className="font-display text-[80px] font-semibold text-stroke" style={{ WebkitTextStroke: '1px #3a3a3a', color: 'transparent' }}>
-                      {String(n).padStart(2, '0')}
-                    </span>
+            {[0, 1, 2, 3].map((n, i) => {
+              const img = galleryImages[n];
+              const isHero = n === 0;
+              return (
+                <RevealOnScroll key={n} delay={i * 60}>
+                  <div
+                    className={`rounded-sm overflow-hidden ${isHero ? 'md:col-span-2 h-[500px]' : 'h-[300px]'}`}
+                    style={{ background: project.bgGradient }}
+                  >
+                    {img ? (
+                      <img
+                        src={img}
+                        alt={`${project.title} — ${n + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center opacity-20">
+                        <span className="font-display text-[80px] font-semibold" style={{ WebkitTextStroke: '1px #3a3a3a', color: 'transparent' }}>
+                          {String(n + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+                    )}
                   </div>
-                </div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
