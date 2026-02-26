@@ -3,11 +3,17 @@ export const ABOUT_PROFILE_IMAGE =
 
 export const SERVICE_IMAGES = {
   strategy:
-    'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop',
+    'https://i.pinimg.com/1200x/15/c5/37/15c53758b21cbde03f1681faf05c9d05.jpg',
   webDesign:
-    'https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1200&auto=format&fit=crop',
+    'https://i.pinimg.com/1200x/ff/e2/41/ffe241d200d8f6e00c912f6a490f894a.jpg',
   branding:
-    'https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop',
+    'https://i.pinimg.com/1200x/7b/69/d7/7b69d73bc92a0ac5fcab9dbe6ec86846.jpg',
+    uiux:
+    'https://i.pinimg.com/736x/13/54/17/135417bebc71b56ef0c76ca0f7c8d222.jpg',
+    teamLead:
+    'https://i.pinimg.com/1200x/c4/38/7f/c4387f6f2c17d8663d345b88b84236b5.jpg',
+    creativeDirection:
+    'https://i.pinimg.com/1200x/ee/f4/91/eef491097c41f58452654567ea767fbe.jpg',
 };
 
 export const PROJECT_IMAGES: Record<

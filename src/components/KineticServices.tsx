@@ -28,6 +28,24 @@ const SERVICES: Service[] = [
     desc: 'Identity systems that go beyond a logo. Comprehensive visual languages built to work across every touchpoint — digital, print, and beyond.',
     image: SERVICE_IMAGES.branding,
   },
+  {
+    num: '04',
+    title: 'UI/UX Design',
+    desc: 'User-centered interfaces designed through research, usability testing, and behavioral insights to create seamless and intuitive digital journeys.',
+    image: SERVICE_IMAGES.uiux,
+  },
+  {
+  num: '05',
+  title: 'Team Leadership',
+  desc: 'Leading cross-functional teams with clarity and collaboration — aligning designers, developers, and stakeholders toward a shared product vision.',
+  image: SERVICE_IMAGES.teamLead,
+},
+{
+  num: '06',
+  title: 'Creative Direction',
+  desc: 'Defining visual narratives and guiding design execution to maintain consistency, innovation, and strong brand storytelling.',
+  image: SERVICE_IMAGES.creativeDirection,
+},
 ];
 
 
