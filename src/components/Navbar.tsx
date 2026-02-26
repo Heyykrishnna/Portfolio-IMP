@@ -103,7 +103,7 @@ export default function Navbar() {
           </ul>
           <div className="flex flex-col gap-4">
             <Link to="/contact" className="btn-primary self-start">Get in touch</Link>
-            <p className="body-sm">hi@Yatharth.com</p>
+            <p className="body-sm">khandelwalyatharth39@gmail.com</p>
           </div>
         </div>
       </div>

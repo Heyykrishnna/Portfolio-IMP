@@ -30,7 +30,7 @@ export default function Contact() {
   }, []);
 
   const contactItems = [
-    { label: 'Email', value: 'hi@Yatharth.com', href: 'mailto:hi@Yatharth.com', sub: 'Fastest response' },
+    { label: 'Email', value: 'khandelwalyatharth39@gmail.com', href: 'mailto:khandelwalyatharth39@gmail.com', sub: 'Fastest response' },
     { label: 'Twitter', value: '@Yatharth', href: 'https://twitter.com', sub: 'For quick chats' },
     { label: 'LinkedIn', value: 'Yatharth', href: 'https://linkedin.com', sub: 'Professional network' },
     { label: 'Dribbble', value: 'Yatharth', href: 'https://dribbble.com', sub: 'Design showcase' },
@@ -62,7 +62,7 @@ export default function Contact() {
 
         <div className="container-main relative z-10 pb-14">
           <div className="mb-12" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
-            <span className="tag block mb-7">contact Us.25</span>
+            <span className="tag block mb-7">contact Us.26</span>
             <h1 className="heading-xl max-w-5xl">
               Let's create
               <br />
@@ -87,7 +87,7 @@ export default function Contact() {
             </div>
             <div className="sm:border-r border-white/[0.08] sm:px-6 pt-6 pb-4">
               <p className="tag mb-2">Email</p>
-              <p className="font-body text-[14px] text-cream">hi@Yatharth.com</p>
+              <p className="font-body text-[14px] text-cream">khandelwalyatharth39@gmail.com</p>
             </div>
             <div className="sm:pl-6 pt-6 pb-4">
               <p className="tag mb-2">Based in</p>
@@ -147,7 +147,7 @@ export default function Contact() {
                     <p className="text-[11px] font-semibold tracking-btn uppercase text-emerald-400">Available Now</p>
                   </div>
                   <p className="font-display text-lg font-semibold text-cream mb-1" style={{ letterSpacing: '-0.01em' }}>Open for Projects</p>
-                  <p className="body-sm text-[12px]">Accepting work for Q2 2025 onwards.</p>
+                  <p className="body-sm text-[12px]">Accepting work for Q2 2026 onwards.</p>
                 </div>
                 <div className="p-6 border border-black-border rounded-sm bg-black-mid hover:bg-black-soft transition-all duration-400">
                   <p className="tag mb-3">Response Time</p>
@@ -190,7 +190,7 @@ export default function Contact() {
                   From concept to launch — every pixel intentional, every interaction purposeful.
                 </p>
               </div>
-              <a href="mailto:hi@Yatharth.com" className="btn-primary relative z-10 flex-shrink-0 !py-5 !px-12 text-base">
+              <a href="mailto:khandelwalyatharth39@gmail.com" className="btn-primary relative z-10 flex-shrink-0 !py-5 !px-12 text-base">
                 Start a Project
               </a>
             </div>

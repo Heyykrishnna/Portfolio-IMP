@@ -181,20 +181,20 @@ export default function Home() {
         <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="gsap-fade-up">
-              <span className="tag block mb-5">about Us.25</span>
+              <span className="tag block mb-5">about Us.26</span>
               <h2 className="heading-lg mb-8">
                 We make designs that
                 <span className="text-gold italic"> create impact.</span>
               </h2>
               <p className="body-lg mb-10">
-                At Yatharth, I craft designs that don't just look stunning — they create impact. Blending creativity with strategy, I transform ideas into immersive digital experiences that captivate, engage, and convert.
+                I’m Yatharth, a Full Stack Developer and Design Developer passionate about creating meaningful digital experiences. I combine creativity with technical expertise to transform ideas into modern, responsive, and user-focused web solutions. My approach goes beyond visual appeal — focusing on usability, performance, and seamless interaction.
               </p>
               <Link to="/about" className="btn-outline">Learn More</Link>
             </div>
 
             <div className="grid grid-cols-2 gap-5 gsap-stagger-children">
               {[
-                { num: '4+', label: 'Projects', desc: 'Each crafted with care.' },
+                { num: '25+', label: 'Projects', desc: 'Each crafted with care.' },
                 { num: '3+', label: 'Years', desc: 'Deep expertise built over time.' },
                 { num: '100%', label: 'Satisfaction', desc: 'Every client leaves delighted.' },
                 { num: '∞', label: 'Drive', desc: 'Passion fuels every project.' },
@@ -221,7 +221,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-t border-b border-black-border divide-x divide-black-border">
-          {['Elysiar', 'Revox', 'Studio X', 'Minimal Co.', 'Arch.22', 'Form Lab'].map(client => (
+          {['Elysiar', 'Revox', 'Studio X', 'Minimal Co.', 'Neutron', 'Hastakala'].map(client => (
             <div key={client} className="h-24 flex items-center justify-center px-4 group cursor-default">
               <p className="font-display text-lg font-medium text-cream-dim group-hover:text-cream opacity-30 group-hover:opacity-80 transition-all duration-400 text-center" style={{ letterSpacing: '-0.01em' }}>
                 {client}
@@ -237,7 +237,7 @@ export default function Home() {
               {[{ num: '01', label: 'Strategy' }, { num: '02', label: 'Web Design' }, { num: '03', label: 'Branding' }].map(s => (
                 <li key={s.num} className="flex items-center gap-5 py-4 border-b border-black-border group cursor-default">
                   <span className="body-sm opacity-40 font-mono text-xs">{s.num}</span>
-                  <span className="font-display font-medium text-cream group-hover:text-gold transition-colors duration-300 group-hover:translate-x-2 inline-block transition-transform" style={{ fontSize: 'clamp(18px,2vw,24px)', letterSpacing: '-0.01em' }}>
+                  <span className="font-display font-medium text-cream group-hover:text-gold transition-colors duration-300 group-hover:translate-x-2 inline-block" style={{ fontSize: 'clamp(18px,2vw,24px)', letterSpacing: '-0.01em' }}>
                     {s.label}
                   </span>
                 </li>
@@ -284,7 +284,7 @@ export default function Home() {
 
         <div className="container-main relative z-10 pt-20 lg:pt-32 pb-0">
           <div className="gsap-fade-up mb-16">
-            <span className="tag block mb-6">contact Us.25</span>
+            <span className="tag block mb-6">contact Us.26</span>
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
               <h2 className="heading-xl max-w-3xl">
                 Got a project?
@@ -303,10 +303,10 @@ export default function Home() {
         <div className="container-main relative z-10 pt-0 pb-0">
           <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-white/10">
             {[
-              { label: 'Email', value: 'hi@Yatharth.com', href: 'mailto:hi@Yatharth.com' },
+              { label: 'Email', value: 'khandelwalyatharth39@gmail.com', href: 'mailto:khandelwalyatharth39@gmail.com' },
               { label: 'Twitter', value: '@Yatharth', href: 'https://twitter.com' },
               { label: 'Response', value: '< 24h', href: null },
-              { label: 'Available', value: 'Q2 2025', href: null },
+              { label: 'Available', value: 'Q2 2026', href: null },
             ].map((item, i) => (
               <div
                 key={item.label}
@@ -355,7 +355,7 @@ export default function Home() {
 
               <div className="mt-12 flex items-center gap-4">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <p className="body-sm">Open to new projects for Q2 2025 onwards</p>
+                <p className="body-sm">Open to new projects for Q2 2026 onwards</p>
               </div>
             </div>
 

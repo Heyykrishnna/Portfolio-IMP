@@ -53,10 +53,10 @@ export default function Footer() {
 
         <div className="p-8 lg:p-10 border-t lg:border-t-0 border-black-border flex flex-col justify-start gap-3">
           <a
-            href="mailto:hi@Yatharth.com"
+            href="mailto:khandelwalyatharth39@gmail.com"
             className="font-body text-[15px] text-cream-dim hover:text-cream transition-colors duration-300 w-fit block"
           >
-            hi@Yatharth.com
+            khandelwalyatharth39@gmail.com
           </a>
           <a
             href="https://twitter.com"

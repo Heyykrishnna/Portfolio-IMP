@@ -54,7 +54,7 @@ export default function About() {
           style={{ WebkitTextStroke: '1px #1e1e1e', color: 'transparent', fontSize: 'clamp(80px, 13vw, 200px)', letterSpacing: '-0.05em' }}
         >
           <span>US</span>
-          <span className="text-gold opacity-20" style={{ WebkitTextStroke: '1px rgba(201,168,124,0.3)' }}>.25</span>
+          <span className="text-gold opacity-20" style={{ WebkitTextStroke: '1px rgba(201,168,124,0.3)' }}>.26</span>
         </div>
 
         <div className="absolute left-[33.33%] top-[72px] bottom-0 pointer-events-none hidden lg:flex flex-col items-center gap-3 pt-16 overflow-hidden">
@@ -63,7 +63,7 @@ export default function About() {
 
         <div className="container-main relative z-10 pb-16">
           <div className="mb-14" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
-            <span className="tag block mb-7">about Us.25</span>
+            <span className="tag block mb-7">about Us.26</span>
             <h1 className="heading-xl max-w-3xl">
               About
             </h1>
@@ -100,10 +100,10 @@ export default function About() {
               </h2>
               <div className="flex flex-col gap-5">
                 <p className="body-lg">
-                  At Yatharth, I craft designs that don't just look stunning — they create impact. Blending creativity with strategy, I transform ideas into immersive digital experiences that captivate, engage, and convert.
+                  I’m Yatharth, a Full Stack Developer and Design Developer passionate about creating meaningful digital experiences. I combine creativity with technical expertise to transform ideas into modern, responsive, and user-focused web solutions. My approach goes beyond visual appeal — focusing on usability, performance, and seamless interaction.
                 </p>
                 <p className="body-lg">
-                  I collaborate with forward-thinking brands, startups, and industry leaders who dare to challenge the norm. Every project is an opportunity to push boundaries, challenge conventions, and create something that truly resonates.
+                  By blending design thinking with strong development skills, I build products that are both aesthetically engaging and technically robust. From crafting intuitive interfaces to developing scalable backend systems, I aim to create digital experiences that captivate users, solve real problems, and deliver lasting impact.
                 </p>
               </div>
               <div className="mt-10">
@@ -183,7 +183,7 @@ export default function About() {
               <span className="tag block mb-5">Get in touch</span>
               <h2 className="heading-lg mb-6">Let's create something exceptional.</h2>
               <p className="body-lg mb-10">Have a project in mind? Let's talk. I'm always open to new collaborations.</p>
-              <a href="mailto:hi@Yatharth.com" className="btn-primary">hi@Yatharth.com</a>
+              <a href="mailto:khandelwalyatharth39@gmail.com" className="btn-primary">khandelwalyatharth39@gmail.com</a>
             </RevealOnScroll>
             <RevealOnScroll delay={150}>
               <ContactForm />
