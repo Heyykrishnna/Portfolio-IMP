@@ -279,13 +279,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative border-t border-black-border overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, #080808 0%, #0f0c08 35%, #1a1208 65%, #080808 100%)' }} />
+      <section className="relative border-t border-black-border overflow-hidden" style={{ background: '#000000' }}>
         <div className="noise-overlay" />
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,124,0.07) 0%, transparent 60%)' }} />
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 40% 50% at 100% 100%, rgba(201,168,124,0.05) 0%, transparent 60%)' }} />
 
         <div className="container-main relative z-10 pt-20 lg:pt-32 pb-0">
           <div className="gsap-fade-up mb-16">
@@ -365,11 +360,22 @@ export default function Home() {
             </div>
 
             <RevealOnScroll delay={100}>
-              <div className="border border-white/[0.08] rounded-sm p-8 lg:p-10"
-                style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(12px)' }}
+              <div
+                className="p-8 lg:p-10"
+                style={{
+                  background: '#050505',
+                  border: '1px solid #1e1e1e',
+                  clipPath: 'polygon(14px 0%, 100% 0%, calc(100% - 14px) 100%, 0% 100%)',
+                }}
               >
-                <p className="tag mb-2">Send a message</p>
-                <h3 className="heading-sm mb-8" style={{ fontSize: 'clamp(20px, 2vw, 28px)' }}>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <p className="tag">Available for projects</p>
+                </div>
+                <h3
+                  className="heading-sm mb-8 font-display"
+                  style={{ fontSize: 'clamp(20px, 2vw, 28px)', letterSpacing: '0.04em' }}
+                >
                   Start the conversation.
                 </h3>
                 <ContactForm variant="home" />

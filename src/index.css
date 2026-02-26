@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap');
 
@@ -18,7 +19,8 @@
   }
 
   body {
-    @apply bg-black text-cream font-body overflow-x-hidden;
+    @apply text-cream font-body overflow-x-hidden;
+    background-color: #000000;
     line-height: 1.6;
   }
 
@@ -30,7 +32,7 @@
     width: 4px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-black;
+    background: #000000;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-gray-mid rounded;
@@ -73,28 +75,28 @@
     @apply font-display font-semibold text-cream;
     font-size: clamp(56px, 9vw, 140px);
     line-height: 0.92;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.02em;
   }
 
   .heading-lg {
     @apply font-display font-semibold text-cream;
     font-size: clamp(40px, 6vw, 96px);
     line-height: 0.94;
-    letter-spacing: -0.025em;
+    letter-spacing: 0.015em;
   }
 
   .heading-md {
     @apply font-display font-semibold text-cream;
     font-size: clamp(28px, 4vw, 56px);
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
   }
 
   .heading-sm {
     @apply font-display font-medium text-cream;
     font-size: clamp(20px, 2.5vw, 32px);
     line-height: 1.1;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.01em;
   }
 
   .body-lg {
@@ -108,20 +110,66 @@
     line-height: 1.6;
   }
 
+  /* ===== LUXURY BUTTONS ===== */
   .btn-primary {
-    @apply inline-flex items-center gap-2.5 px-8 py-3.5 bg-cream text-black font-body text-[13px] font-semibold uppercase tracking-btn rounded-sm transition-all duration-300 cursor-pointer;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    @apply relative inline-flex items-center justify-center gap-2.5 px-10 py-4 font-body text-[12px] font-bold uppercase tracking-[0.18em] cursor-pointer overflow-hidden;
+    background: #000000;
+    color: #c9a87c;
+    border: 1px solid #c9a87c;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #c9a87c;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .btn-primary span, .btn-primary > * {
+    position: relative;
+    z-index: 1;
+  }
+  .btn-primary:hover::before {
+    transform: scaleX(1);
   }
   .btn-primary:hover {
-    @apply bg-gold -translate-y-0.5;
+    color: #000000;
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2.5 px-8 py-3.5 bg-transparent text-cream font-body text-[13px] font-semibold uppercase tracking-btn rounded-sm border border-black-border transition-all duration-300 cursor-pointer;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    @apply relative inline-flex items-center justify-center gap-2.5 px-10 py-4 font-body text-[12px] font-bold uppercase tracking-[0.18em] cursor-pointer overflow-hidden;
+    background: transparent;
+    color: #f0ebe3;
+    border: 1px solid rgba(240,235,227,0.25);
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-outline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(201,168,124,0.08);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .btn-outline:hover::before {
+    transform: scaleX(1);
   }
   .btn-outline:hover {
-    @apply border-gold text-gold -translate-y-0.5;
+    border-color: #c9a87c;
+    color: #c9a87c;
+  }
+  .btn-outline:active {
+    transform: scale(0.97);
   }
 
   .arrow-link {
@@ -147,13 +195,65 @@
 
   .hero-bg-placeholder {
     @apply absolute inset-0 w-full h-full;
-    background: linear-gradient(135deg, #080808 0%, #0f0f0f 50%, #080808 100%);
+    background: #000000;
   }
 
   .noise-overlay {
     @apply absolute inset-0 pointer-events-none opacity-[0.04];
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
     background-size: 200px 200px;
+  }
+
+  /* ===== LUXURY INPUT FIELDS ===== */
+  .luxury-input {
+    @apply w-full font-body text-sm text-cream outline-none transition-all duration-300;
+    background: #080808;
+    border: 1px solid #1e1e1e;
+    padding: 14px 18px;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    placeholder-color: rgba(184,176,165,0.4);
+  }
+  .luxury-input::placeholder {
+    color: rgba(184,176,165,0.4);
+  }
+  .luxury-input:focus {
+    border-color: #c9a87c;
+    background: #0a0a0a;
+  }
+
+  /* ===== SUBMIT BUTTON LUXURY ===== */
+  .btn-submit {
+    @apply relative inline-flex items-center justify-center gap-3 font-body text-[12px] font-bold uppercase tracking-[0.2em] cursor-pointer overflow-hidden;
+    padding: 16px 48px;
+    background: #000000;
+    color: #c9a87c;
+    border: 1px solid #c9a87c;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.2em;
+  }
+  .btn-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #c9a87c;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
+  }
+  .btn-submit > * {
+    position: relative;
+    z-index: 1;
+  }
+  .btn-submit:hover::before {
+    transform: scaleX(1);
+  }
+  .btn-submit:hover {
+    color: #000000;
+  }
+  .btn-submit:active {
+    transform: scale(0.97);
   }
 }
 
@@ -173,31 +273,8 @@
     -webkit-background-clip: text;
     background-clip: text;
   }
-}
 
-html[data-theme='light'] body {
-  background-color: #f5f0e8 !important;
-  color: #0f0f0f !important;
+  .bg-black-true {
+    background-color: #000000 !important;
+  }
 }
-html[data-theme='light'] .bg-black { background-color: #f5f0e8 !important; }
-html[data-theme='light'] .bg-black-mid { background-color: #ece7df !important; }
-html[data-theme='light'] .bg-black-soft { background-color: #e5e0d8 !important; }
-html[data-theme='light'] .border-black-border { border-color: #d0ccc5 !important; }
-html[data-theme='light'] .text-cream,
-html[data-theme='light'] .heading-xl,
-html[data-theme='light'] .heading-lg,
-html[data-theme='light'] .heading-md,
-html[data-theme='light'] .heading-sm { color: #0f0f0f !important; }
-html[data-theme='light'] .text-cream-dim,
-html[data-theme='light'] .body-lg,
-html[data-theme='light'] .body-sm { color: #4a4540 !important; }
-html[data-theme='light'] .hero-bg-placeholder {
-  background: linear-gradient(135deg, #ede8e0 0%, #e5dfd5 50%, #ede8e0 100%) !important;
-}
-html[data-theme='light'] .bg-black\/90 { background-color: rgba(245,240,232,0.92) !important; }
-html[data-theme='light'] .btn-primary { background-color: #0f0f0f !important; color: #f5f0e8 !important; }
-html[data-theme='light'] .btn-primary:hover { background-color: #c9a87c !important; }
-html[data-theme='light'] .btn-outline { border-color: #d0ccc5 !important; color: #0f0f0f !important; }
-html[data-theme='light'] .bg-black\/30,
-html[data-theme='light'] .bg-black\/40 { background-color: rgba(245,240,232,0.6) !important; }
-html[data-theme='light'] [class*="divide-black-border"] { border-color: #d0ccc5 !important; }

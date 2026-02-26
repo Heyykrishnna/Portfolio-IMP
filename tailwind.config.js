@@ -28,8 +28,9 @@ export default {
       },
       fontFamily: {
         display: ['Clash Display', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        body: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        body: ['Doto', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['Doto', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        doto: ['Doto', 'monospace'],
       },
       fontSize: {
         'hero': 'clamp(56px, 9vw, 140px)',
