@@ -7,6 +7,7 @@ interface Service {
   title: string;
   desc: string;
   image: string;
+  tag: string;
 }
 
 const SERVICES: Service[] = [
@@ -15,39 +16,44 @@ const SERVICES: Service[] = [
     title: 'Strategy',
     desc: 'Data-informed thinking meets creative vision. I define brand positioning, audience personas, and content hierarchies that make every design decision purposeful.',
     image: SERVICE_IMAGES.strategy,
+    tag: 'Research & Planning',
   },
   {
     num: '02',
     title: 'Web Design',
     desc: 'From wireframes to polished interfaces, I craft digital experiences with obsessive attention to typography, spacing, motion, and interaction.',
     image: SERVICE_IMAGES.webDesign,
+    tag: 'Digital Product',
   },
   {
     num: '03',
     title: 'Branding',
     desc: 'Identity systems that go beyond a logo. Comprehensive visual languages built to work across every touchpoint — digital, print, and beyond.',
     image: SERVICE_IMAGES.branding,
+    tag: 'Identity Systems',
   },
   {
     num: '04',
     title: 'UI/UX Design',
     desc: 'User-centered interfaces designed through research, usability testing, and behavioral insights to create seamless and intuitive digital journeys.',
     image: SERVICE_IMAGES.uiux,
+    tag: 'Experience Design',
   },
   {
-  num: '05',
-  title: 'Team Leadership',
-  desc: 'Leading cross-functional teams with clarity and collaboration — aligning designers, developers, and stakeholders toward a shared product vision.',
-  image: SERVICE_IMAGES.teamLead,
-},
-{
-  num: '06',
-  title: 'Creative Direction',
-  desc: 'Defining visual narratives and guiding design execution to maintain consistency, innovation, and strong brand storytelling.',
-  image: SERVICE_IMAGES.creativeDirection,
-},
+    num: '05',
+    title: 'Team Leadership',
+    desc: 'Leading cross-functional teams with clarity and collaboration — aligning designers, developers, and stakeholders toward a shared product vision.',
+    image: SERVICE_IMAGES.teamLead,
+    tag: 'Management',
+  },
+  {
+    num: '06',
+    title: 'Creative Direction',
+    desc: 'Defining visual narratives and guiding design execution to maintain consistency, innovation, and strong brand storytelling.',
+    image: SERVICE_IMAGES.creativeDirection,
+    tag: 'Art Direction',
+  },
 ];
-
 
 function ServiceRow({
   service,
@@ -67,14 +73,11 @@ function ServiceRow({
   const rowRef = useRef<HTMLDivElement>(null);
   const isDimmed = isAnyActive && !isActive;
 
-  // Scroll-based activation: when row enters viewport center, mark it active
   useEffect(() => {
     if (!isMobile) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setActiveId(service.num);
-        }
+        if (entry.isIntersecting) setActiveId(service.num);
       },
       { threshold: 0.6 }
     );
@@ -87,50 +90,66 @@ function ServiceRow({
       ref={rowRef}
       layout
       initial={{ opacity: 0, y: 24 }}
-      animate={{
-        opacity: isDimmed ? 0.3 : 1,
-        y: 0,
-      }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      animate={{ opacity: isDimmed ? 0.25 : 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.07 }}
       onMouseEnter={() => !isMobile && setActiveId(service.num)}
       onMouseLeave={() => !isMobile && setActiveId(null)}
       className="group relative border-t border-black-border last:border-b cursor-default"
     >
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-[120px_1fr_1fr] gap-8 py-10 transition-all duration-500">
+      <motion.div
+        animate={{ backgroundColor: isActive ? 'rgba(201,168,124,0.03)' : 'transparent' }}
+        transition={{ duration: 0.3 }}
+        className="relative z-10 grid grid-cols-1 md:grid-cols-[80px_1fr_auto_200px] gap-6 md:gap-10 py-8 md:py-10 items-center transition-all duration-500 px-0 md:px-2"
+      >
         <motion.span
-          animate={{ opacity: isActive ? 1 : 0.35 }}
+          animate={{ opacity: isActive ? 1 : 0.3 }}
           transition={{ duration: 0.3 }}
-          className="body-sm font-mono pt-1 text-gold"
+          className="font-mono text-[11px] text-gold hidden md:block"
         >
           {service.num}
         </motion.span>
 
-        <motion.h3
-          animate={{
-            x: isActive ? 8 : 0,
-            color: isActive ? '#c9a87c' : '#e8e0d4',
-          }}
-          transition={{ duration: 0.35 }}
-          className="font-display font-semibold transition-colors duration-300"
-          style={{
-            fontSize: 'clamp(24px, 3vw, 40px)',
-            letterSpacing: '-0.02em',
-            lineHeight: 1.1,
-          }}
+        <div className="flex flex-col gap-1.5">
+          <div className="flex items-center gap-3 md:hidden mb-1">
+            <span className="font-mono text-[10px] text-gold">{service.num}</span>
+            <span className="text-[9px] font-medium uppercase tracking-widest text-cream-dim opacity-50 border border-black-border px-2 py-0.5 rounded-sm">
+              {service.tag}
+            </span>
+          </div>
+          <motion.h3
+            animate={{
+              x: isActive ? 6 : 0,
+              color: isActive ? '#c9a87c' : '#e8e0d4',
+            }}
+            transition={{ duration: 0.3 }}
+            className="font-display font-semibold transition-colors duration-300"
+            style={{
+              fontSize: 'clamp(22px, 2.8vw, 38px)',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1,
+            }}
+          >
+            {service.title}
+          </motion.h3>
+        </div>
+
+        <motion.span
+          animate={{ opacity: isActive ? 0.8 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="hidden md:block text-[10px] font-medium uppercase tracking-widest text-cream-dim border border-black-border px-3 py-1 rounded-sm whitespace-nowrap"
         >
-          {service.title}
-        </motion.h3>
+          {service.tag}
+        </motion.span>
 
         <motion.p
-          animate={{ opacity: isActive ? 1 : 0.6 }}
+          animate={{ opacity: isActive ? 1 : 0.45 }}
           transition={{ duration: 0.3 }}
-          className="body-lg"
+          className="body-sm text-[13px] leading-relaxed"
         >
           {service.desc}
         </motion.p>
-      </div>
+      </motion.div>
 
-      {/* Mobile Inline Image (accordion) */}
       <AnimatePresence>
         {isMobile && isActive && (
           <motion.div
@@ -160,14 +179,12 @@ function ServiceRow({
   );
 }
 
-
 export default function KineticServices() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-
   const springCfg = { damping: 28, stiffness: 400, mass: 0.15 };
   const cursorX = useSpring(mouseX, springCfg);
   const cursorY = useSpring(mouseY, springCfg);
@@ -185,11 +202,10 @@ export default function KineticServices() {
     mouseY.set(e.clientY + 24);
   };
 
+  const activeService = SERVICES.find(s => s.num === activeId);
+
   return (
-    <div
-      className="relative w-full"
-      onMouseMove={handleMouseMove}
-    >
+    <div className="relative w-full" onMouseMove={handleMouseMove}>
       <div className="flex flex-col">
         {SERVICES.map((s, i) => (
           <ServiceRow
@@ -210,7 +226,7 @@ export default function KineticServices() {
           className="pointer-events-none fixed left-0 top-0 z-[999] hidden md:block"
         >
           <AnimatePresence mode="wait">
-            {activeId && (
+            {activeId && activeService && (
               <motion.div
                 key={activeId}
                 initial={{ opacity: 0, scale: 0.85, filter: 'blur(4px)' }}
@@ -220,17 +236,20 @@ export default function KineticServices() {
                 className="relative h-60 w-80 overflow-hidden rounded-sm border border-white/10 shadow-2xl"
               >
                 <img
-                  src={SERVICES.find((s) => s.num === activeId)?.image}
-                  alt="Preview"
+                  src={activeService.image}
+                  alt={activeService.title}
                   className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-4">
-                  <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-gold/80">
-                    {SERVICES.find((s) => s.num === activeId)?.title}
-                  </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-4 flex flex-col gap-1">
+                  <span className="text-[9px] font-mono uppercase tracking-[0.25em] text-gold/70">
+                    {activeService.tag}
+                  </span>
+                  <span className="text-[13px] font-display font-semibold text-cream" style={{ letterSpacing: '-0.01em' }}>
+                    {activeService.title}
+                  </span>
                 </div>
-                <div className="absolute inset-0 rounded-sm ring-1 ring-gold/20 pointer-events-none" />
+                <div className="absolute inset-0 rounded-sm ring-1 ring-gold/15 pointer-events-none" />
               </motion.div>
             )}
           </AnimatePresence>

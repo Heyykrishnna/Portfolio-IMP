@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,6 +12,96 @@ import RevealOnScroll from '../components/RevealOnScroll';
 import GradientBlinds from '../components/GradientBlinds';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const HOME_SERVICES = [
+  {
+    num: '01',
+    label: 'Strategy',
+    tag: 'Research & Planning',
+    desc: 'Data-informed thinking meets creative vision. Brand positioning, audience personas, and content hierarchies that make every design decision purposeful.',
+  },
+  {
+    num: '02',
+    label: 'Web Design',
+    tag: 'Digital Product',
+    desc: 'From wireframes to polished interfaces — digital experiences with obsessive attention to typography, spacing, motion, and interaction.',
+  },
+  {
+    num: '03',
+    label: 'Branding',
+    tag: 'Identity Systems',
+    desc: 'Identity systems that go beyond a logo. Visual languages built to work across every touchpoint — digital, print, and beyond.',
+  },
+];
+
+function HomeServices() {
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const active = HOME_SERVICES.find(s => s.num === activeId) ?? HOME_SERVICES[0];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-0 border border-black-border rounded-sm overflow-hidden">
+      <ul className="flex flex-col divide-y divide-black-border">
+        {HOME_SERVICES.map(s => {
+          const isActive = activeId === s.num || (!activeId && s.num === '01');
+          return (
+            <li
+              key={s.num}
+              onMouseEnter={() => setActiveId(s.num)}
+              onMouseLeave={() => setActiveId(null)}
+              className="relative flex items-center gap-6 px-6 py-7 cursor-default group transition-colors duration-300"
+              style={{ background: isActive ? 'rgba(201,168,124,0.04)' : 'transparent' }}
+            >
+              <span
+                className="font-mono text-[11px] transition-colors duration-300"
+                style={{ color: isActive ? '#c9a87c' : 'rgba(232,224,212,0.3)' }}
+              >
+                {s.num}
+              </span>
+              <div className="flex-1 flex flex-col gap-1">
+                <span
+                  className="font-display font-semibold transition-all duration-300 inline-block"
+                  style={{
+                    fontSize: 'clamp(20px,2.2vw,28px)',
+                    letterSpacing: '-0.015em',
+                    color: isActive ? '#c9a87c' : '#e8e0d4',
+                    transform: isActive ? 'translateX(6px)' : 'translateX(0)',
+                  }}
+                >
+                  {s.label}
+                </span>
+                <span
+                  className="text-[10px] font-medium uppercase tracking-widest transition-opacity duration-300"
+                  style={{ color: '#c9a87c', opacity: isActive ? 0.7 : 0 }}
+                >
+                  {s.tag}
+                </span>
+              </div>
+              <svg
+                className="flex-shrink-0 transition-all duration-300 text-gold"
+                style={{ opacity: isActive ? 1 : 0, transform: isActive ? 'translateX(0)' : 'translateX(-6px)' }}
+                width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+              {isActive && (
+                <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-gold" />
+              )}
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="border-t md:border-t-0 md:border-l border-black-border bg-black-mid p-8 flex flex-col justify-between gap-6 min-h-[220px]">
+        <div className="flex flex-col gap-3">
+          <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-gold opacity-70">{active.tag}</span>
+          <p className="body-lg leading-[1.85] transition-all duration-300">{active.desc}</p>
+        </div>
+        <Link to="/about" className="arrow-link">Explore Services</Link>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const heroTextRef = useRef<HTMLDivElement>(null);
@@ -230,28 +320,12 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="container-main mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-black-border">
-          <div className="gsap-fade-up md:col-span-1">
-            <span className="tag block mb-5">Services</span>
-            <ul className="flex flex-col gap-px">
-              {[{ num: '01', label: 'Strategy' }, { num: '02', label: 'Web Design' }, { num: '03', label: 'Branding' }].map(s => (
-                <li key={s.num} className="flex items-center gap-5 py-4 border-b border-black-border group cursor-default">
-                  <span className="body-sm opacity-40 font-mono text-xs">{s.num}</span>
-                  <span className="font-display font-medium text-cream group-hover:text-gold transition-colors duration-300 group-hover:translate-x-2 inline-block" style={{ fontSize: 'clamp(18px,2vw,24px)', letterSpacing: '-0.01em' }}>
-                    {s.label}
-                  </span>
-                </li>
-              ))}
-            </ul>
+        <div className="container-main mt-16 pt-12 border-t border-black-border gsap-fade-up">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+            <span className="tag">Services</span>
+            <Link to="/about" className="arrow-link text-[12px]">All Services</Link>
           </div>
-          <RevealOnScroll className="md:col-span-2">
-            <div className="p-8 border border-black-border rounded-sm bg-black-mid h-full flex flex-col justify-between gap-8">
-              <p className="body-lg leading-[1.8]">
-                I craft digital experiences that elevate brands and engage audiences. Every service blends creativity with strategy, ensuring every design is not just visually striking but also results-driven.
-              </p>
-              <Link to="/about" className="arrow-link">Explore Services</Link>
-            </div>
-          </RevealOnScroll>
+          <HomeServices />
         </div>
       </section>
 

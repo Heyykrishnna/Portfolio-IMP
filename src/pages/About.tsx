@@ -5,6 +5,7 @@ import MarqueeText from '../components/MarqueeText';
 import ContactForm from '../components/ContactForm';
 import HeroCursorGlow from '../components/HeroCursorGlow';
 import KineticServices from '../components/KineticServices';
+import GitHubSection from '../components/GitHubSection';
 import { ABOUT_PROFILE_IMAGE } from '../data/images';
 
 export default function About() {
@@ -154,6 +155,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <GitHubSection />
 
       <section className="section-pad">
         <div className="container-main">
