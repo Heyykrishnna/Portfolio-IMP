@@ -123,7 +123,7 @@ export default function About() {
       </section>
 
       <section className="py-5 border-b border-black-border">
-        <MarqueeText text="Strategy · Design · Branding" speed={35} separator="" />
+        <MarqueeText text="Strategy · Design · Branding" speed={35} separator="/" />
       </section>
 
       <section className="section-pad border-b border-black-border">

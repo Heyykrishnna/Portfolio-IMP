@@ -11,7 +11,7 @@ import ContactForm from '../components/ContactForm';
 import RevealOnScroll from '../components/RevealOnScroll';
 import GradientBlinds from '../components/GradientBlinds';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger); 
 
 const HOME_SERVICES = [
   {
@@ -282,17 +282,50 @@ export default function Home() {
               <Link to="/about" className="btn-outline">Learn More</Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-5 gsap-stagger-children">
+            <div className="grid grid-cols-2 border border-black-border rounded-sm overflow-hidden gsap-stagger-children">
               {[
-                { num: '25+', label: 'Projects', desc: 'Each crafted with care.' },
-                { num: '3+', label: 'Years', desc: 'Deep expertise built over time.' },
-                { num: '100%', label: 'Satisfaction', desc: 'Every client leaves delighted.' },
-                { num: '∞', label: 'Drive', desc: 'Passion fuels every project.' },
-              ].map(s => (
-                <div key={s.label} className="p-6 border border-black-border rounded-sm bg-black-mid hover:border-gray-mid hover:bg-black-soft transition-all duration-500 group">
-                  <p className="font-display text-4xl font-semibold text-gold mb-2 group-hover:scale-110 transition-transform duration-300 origin-left" style={{ letterSpacing: '-0.02em' }}>{s.num}</p>
-                  <p className="font-body text-[12px] font-semibold tracking-btn uppercase text-cream mb-1">{s.label}</p>
-                  <p className="body-sm text-[12px]">{s.desc}</p>
+                { num: '25+', label: 'Projects Completed', desc: 'Each delivered with precision and intentionality.' },
+                { num: '3+', label: 'Years Active', desc: 'Deep expertise built across creative disciplines.' },
+                { num: '100%', label: 'Client Satisfaction', desc: 'Every engagement ends with a delighted partner.' },
+                { num: '∞', label: 'Creative Drive', desc: 'Relentless passion — never settling for good enough.' },
+                { num: '1000+', label: 'Coffee Consumed', desc: 'Fueling creativity and late-night coding sessions.' },
+                { num: '15+', label: 'Clients', desc: 'Across the Globe.' },
+              ].map((s, i) => (
+                <div
+                  key={s.label}
+                  className="group relative flex flex-col justify-between gap-4 p-7 cursor-default overflow-hidden transition-colors duration-500 hover:bg-black-mid"
+                  style={{
+                    borderRight: i % 2 === 0 ? '1px solid #1e1e1e' : 'none',
+                    borderBottom: i < 2 ? '1px solid #1e1e1e' : 'none',
+                  }}
+                >
+                  <div>
+                    <p
+                      className="font-display font-semibold text-gold transition-transform duration-500 group-hover:translate-x-1 origin-left"
+                      style={{ fontSize: 'clamp(36px, 4.5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1 }}
+                    >
+                      {s.num}
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cream-dim opacity-70">
+                      {s.label}
+                    </p>
+                    <p className="body-sm text-[12px] leading-relaxed opacity-55 transition-opacity duration-300 group-hover:opacity-75">
+                      {s.desc}
+                    </p>
+                  </div>
+                  <div
+                    className="absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-500 ease-out"
+                    style={{ width: '0%' }}
+                    ref={el => {
+                      if (!el) return;
+                      const parent = el.parentElement;
+                      if (!parent) return;
+                      parent.addEventListener('mouseenter', () => { el.style.width = '100%'; });
+                      parent.addEventListener('mouseleave', () => { el.style.width = '0%'; });
+                    }}
+                  />
                 </div>
               ))}
             </div>
@@ -428,7 +461,7 @@ export default function Home() {
               </div>
 
               <div className="mt-12 flex items-center gap-4">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-emerald-400 " />
                 <p className="body-sm">Open to new projects for Q2 2026 onwards</p>
               </div>
             </div>
@@ -443,7 +476,7 @@ export default function Home() {
                 }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                   <p className="tag">Available for projects</p>
                 </div>
                 <h3

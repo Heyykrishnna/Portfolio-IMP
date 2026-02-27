@@ -81,7 +81,7 @@ export default function Contact() {
             <div className="sm:border-r border-white/[0.08] sm:px-6 pt-6 pb-4">
               <p className="tag mb-2">Status</p>
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-emerald-400 " />
                 <p className="font-body text-[14px] font-medium text-cream">Available</p>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function Contact() {
               <div className="contact-reveal grid grid-cols-2 gap-4">
                 <div className="p-6 border border-black-border rounded-sm bg-black-mid hover:bg-black-soft transition-all duration-400">
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <div className="w-2 h-2 rounded-full bg-emerald-400" />
                     <p className="text-[11px] font-semibold tracking-btn uppercase text-emerald-400">Available Now</p>
                   </div>
                   <p className="font-display text-lg font-semibold text-cream mb-1" style={{ letterSpacing: '-0.01em' }}>Open for Projects</p>

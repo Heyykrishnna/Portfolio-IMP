@@ -145,17 +145,12 @@ export default function KineticTeamHybrid() {
                 className="relative h-64 w-80 overflow-hidden rounded-xl border border-white/10 bg-neutral-900 shadow-2xl"
               >
                 {/* Find the active image */}
-                <Image
-                  src={TEAM.find((t) => t.id === activeId)?.image}
-                                  alt="Preview"
-                                  fill
-                  className="h-full w-full object-cover"
-                />
+                <img src={TEAM.find((t) => t.id === activeId)?.image} alt="Preview" className="h-full w-full object-cover" />
                 
                 {/* Overlay Metadata */}
                 <div className="absolute bottom-0 w-full bg-linear-to-t from-black/80 to-transparent p-4">
                   <div className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-green-500 " />
                     <span className="text-[10px] uppercase tracking-widest text-white/80">Active</span>
                   </div>
                 </div>
