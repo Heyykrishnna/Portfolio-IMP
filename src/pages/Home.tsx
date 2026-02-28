@@ -263,7 +263,7 @@ export default function Home() {
 
           <div className="mt-12 text-center gsap-fade-up">
             <p className="body-sm">
-              Discover <span className="text-gold font-semibold">50+</span> more projects on my{' '}
+              Discover <span className="text-gold font-semibold">25+</span> more projects on my{' '}
               <a 
                 href="https://github.com/Heyykrishnna" 
                 target="_blank" 
