@@ -51,7 +51,7 @@ export default function Work() {
               <p className="body-lg max-w-xs">A curated collection spanning web design, branding, and digital experiences.</p>
             </div>
             <div className="sm:pl-8 pt-4 sm:pt-0 flex items-end">
-              <p className="body-sm opacity-40 font-mono text-xs tracking-wider uppercase">2022 — 2025</p>
+              <p className="body-sm opacity-40 font-mono text-xs tracking-wider uppercase">2022 — 2026</p>
             </div>
           </div>
         </div>
@@ -90,6 +90,22 @@ export default function Work() {
               </RevealOnScroll>
             ))}
           </div>
+
+          <RevealOnScroll>
+            <div className="mt-16 text-center">
+              <p className="body-lg">
+                Discover <span className="text-gold font-semibold">50+</span> more projects on my{' '}
+                <a 
+                  href="https://github.com/Heyykrishnna" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-cream hover:text-gold transition-colors duration-300 underline decoration-white/20 underline-offset-4"
+                >
+                  GitHub Profile
+                </a>.
+              </p>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
     </main>

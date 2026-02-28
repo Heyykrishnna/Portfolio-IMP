@@ -264,6 +264,20 @@ export default function Home() {
               <ProjectCard key={project.slug} project={project} index={i} variant={i === 0 ? 'featured' : 'default'} />
             ))}
           </div>
+
+          <div className="mt-12 text-center gsap-fade-up">
+            <p className="body-sm">
+              Discover <span className="text-gold font-semibold">50+</span> more projects on my{' '}
+              <a 
+                href="https://github.com/Heyykrishnna" 
+                target="_blank" 
+                rel="noreferrer"
+                className="text-cream hover:text-gold transition-colors duration-300 underline decoration-white/20 underline-offset-4"
+              >
+                GitHub Profile
+              </a>.
+            </p>
+          </div>
         </div>
       </section>
 
