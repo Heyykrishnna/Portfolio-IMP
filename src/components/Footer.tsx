@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-black-border bg-black">
-      <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-black-border">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-black-border">
         <div className="p-8 lg:p-10 border-r border-black-border flex flex-col gap-5">
           {[
             { label: 'Work', to: '/work' },
@@ -70,7 +70,7 @@ export default function Footer() {
       </div>
 
       <div className="relative overflow-hidden">
-        <div className="grid grid-cols-[260px_1fr] border-b border-black-border min-h-[280px] lg:min-h-[380px]">
+        <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] border-b border-black-border min-h-[280px] lg:min-h-[380px]">
           <div className="border-r border-black-border relative flex flex-col justify-between p-8 lg:p-10">
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
               <svg
@@ -98,7 +98,7 @@ export default function Footer() {
             <span
               className="font-display font-semibold text-cream select-none leading-[0.82]"
               style={{
-                fontSize: 'clamp(120px, 18vw, 300px)',
+                fontSize: 'clamp(60px, 18vw, 300px)',
                 letterSpacing: '-0.04em',
                 lineHeight: 0.82,
                 whiteSpace: 'nowrap',

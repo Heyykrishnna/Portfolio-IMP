@@ -290,7 +290,7 @@ export default function Home() {
               <Link to="/about" className="btn-outline">Learn More</Link>
             </div>
 
-            <div className="grid grid-cols-2 border border-black-border rounded-sm overflow-hidden gsap-stagger-children">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-black-border border border-black-border rounded-sm overflow-hidden gsap-stagger-children">
               {[
                 { num: '25+', label: 'Projects Completed', desc: 'Each delivered with precision and intentionality.' },
                 { num: '3+', label: 'Years Active', desc: 'Deep expertise built across creative disciplines.' },
@@ -298,14 +298,10 @@ export default function Home() {
                 { num: '∞', label: 'Creative Drive', desc: 'Relentless passion — never settling for good enough.' },
                 { num: '1000+', label: 'Coffee Consumed', desc: 'Fueling creativity and late-night coding sessions.' },
                 { num: '15+', label: 'Clients', desc: 'Across the Globe.' },
-              ].map((s, i) => (
+              ].map((s) => (
                 <div
                   key={s.label}
-                  className="group relative flex flex-col justify-between gap-4 p-7 cursor-default overflow-hidden transition-colors duration-500 hover:bg-black-mid"
-                  style={{
-                    borderRight: i % 2 === 0 ? '1px solid #1e1e1e' : 'none',
-                    borderBottom: i < 2 ? '1px solid #1e1e1e' : 'none',
-                  }}
+                  className="bg-black group relative flex flex-col justify-between gap-4 p-7 cursor-default overflow-hidden transition-colors duration-500 hover:bg-black-mid"
                 >
                   <div>
                     <p
@@ -416,16 +412,16 @@ export default function Home() {
         </div>
 
         <div className="container-main relative z-10 pt-0 pb-0">
-          <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-white/10 bg-white/10 gap-[1px]">
             {[
               { label: 'Email', value: 'khandelwalyatharth39@gmail.com', href: 'mailto:khandelwalyatharth39@gmail.com' },
               { label: 'GitHub', value: '@Heyykrishnna', href: 'https://github.com/Heyykrishnna' },
               { label: 'Response', value: '< 24h', href: null },
               { label: 'Available', value: 'Q2 2026', href: null },
-            ].map((item, i) => (
+            ].map((item) => (
               <div
                 key={item.label}
-                className={`py-6 ${i < 3 ? 'border-r border-white/10' : ''} ${i > 0 ? 'px-6' : 'pr-6'}`}
+                className="py-6 px-6 bg-black"
               >
                 <p className="tag mb-2">{item.label}</p>
                 {item.href ? (

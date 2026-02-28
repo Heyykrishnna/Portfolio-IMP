@@ -71,23 +71,23 @@ export default function Contact() {
           </div>
 
           <div
-            className="grid grid-cols-1 sm:grid-cols-4 border-t border-white/[0.08]"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-white/[0.08]"
             style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.45s forwards', opacity: 0 }}
           >
-            <div className="sm:border-r border-white/[0.08] pt-6 pr-6 pb-4">
+            <div className="sm:border-r border-b sm:border-b-0 border-white/[0.08] pt-6 pr-6 pb-4">
               <p className="tag mb-2">Response</p>
               <p className="font-display text-3xl font-semibold text-gold" style={{ letterSpacing: '-0.02em' }}>24h</p>
             </div>
-            <div className="sm:border-r border-white/[0.08] sm:px-6 pt-6 pb-4">
+            <div className="lg:border-r border-b sm:border-b-0 border-white/[0.08] sm:px-6 pt-6 pb-4">
               <p className="tag mb-2">Status</p>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 " />
                 <p className="font-body text-[14px] font-medium text-cream">Available</p>
               </div>
             </div>
-            <div className="sm:border-r border-white/[0.08] sm:px-6 pt-6 pb-4">
+            <div className="sm:border-r border-b sm:border-b-0 border-white/[0.08] lg:px-6 sm:pr-6 pt-6 pb-4">
               <p className="tag mb-2">Email</p>
-              <p className="font-body text-[14px] text-cream">khandelwalyatharth39@gmail.com</p>
+              <p className="font-body text-[14px] text-cream break-all">khandelwalyatharth39@gmail.com</p>
             </div>
             <div className="sm:pl-6 pt-6 pb-4">
               <p className="tag mb-2">Based in</p>
@@ -140,7 +140,7 @@ export default function Contact() {
                 ))}
               </div>
 
-              <div className="contact-reveal grid grid-cols-2 gap-4">
+              <div className="contact-reveal grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-6 border border-black-border rounded-sm bg-black-mid hover:bg-black-soft transition-all duration-400">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-2 h-2 rounded-full bg-emerald-400" />

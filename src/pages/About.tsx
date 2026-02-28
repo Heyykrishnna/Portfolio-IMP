@@ -99,9 +99,9 @@ export default function About() {
             </RevealOnScroll>
 
             <RevealOnScroll delay={150}>
-              <div className="relative">
+              <div className="relative mt-12 lg:mt-0">
                 <div
-                  className="w-full aspect-[4/5] rounded-sm overflow-hidden"
+                  className="w-full aspect-square sm:aspect-[4/5] rounded-sm overflow-hidden"
                   style={!ABOUT_PROFILE_IMAGE ? { background: 'linear-gradient(135deg, #0f0f0f 0%, #1e1710 50%, #0f0f0f 100%)' } : undefined}
                 >
                   {ABOUT_PROFILE_IMAGE && (
@@ -112,9 +112,9 @@ export default function About() {
                     />
                   )}
                 </div>
-                <div className="absolute -bottom-6 -right-6 p-6 bg-black border border-black-border rounded-sm">
-                  <p className="font-display text-5xl font-semibold text-gold" style={{ letterSpacing: '-0.03em' }}>3+</p>
-                  <p className="body-sm mt-1">Years crafting<br />digital excellence</p>
+                <div className="absolute -bottom-6 -right-2 sm:-right-6 p-4 sm:p-6 bg-black border border-black-border rounded-sm">
+                  <p className="font-display text-4xl sm:text-5xl font-semibold text-gold" style={{ letterSpacing: '-0.03em' }}>3+</p>
+                  <p className="body-sm text-[12px] sm:text-[14px] mt-1">Years crafting<br />digital excellence</p>
                 </div>
               </div>
             </RevealOnScroll>

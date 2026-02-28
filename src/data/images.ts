@@ -9,7 +9,7 @@ export const SERVICE_IMAGES = {
   branding:
     'https://i.pinimg.com/1200x/7b/69/d7/7b69d73bc92a0ac5fcab9dbe6ec86846.jpg',
     uiux:
-    'https://i.pinimg.com/736x/13/54/17/135417bebc71b56ef0c76ca0f7c8d222.jpg',
+    'https://i.pinimg.com/1200x/dd/05/21/dd05213b13758a4bbac3b406e9dcdb63.jpg',
     teamLead:
     'https://i.pinimg.com/1200x/c4/38/7f/c4387f6f2c17d8663d345b88b84236b5.jpg',
     creativeDirection:

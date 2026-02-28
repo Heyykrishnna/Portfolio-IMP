@@ -126,14 +126,14 @@
 
   .heading-xl {
     @apply font-display font-semibold text-cream;
-    font-size: clamp(56px, 9vw, 140px);
+    font-size: clamp(48px, 10vw, 140px);
     line-height: 0.92;
     letter-spacing: 0.02em;
   }
 
   .heading-lg {
     @apply font-display font-semibold text-cream;
-    font-size: clamp(40px, 6vw, 96px);
+    font-size: clamp(36px, 8vw, 96px);
     line-height: 0.94;
     letter-spacing: 0.015em;
   }

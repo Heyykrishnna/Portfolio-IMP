@@ -57,12 +57,12 @@ export default function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-10 h-10 rounded-full border border-gold/60 pointer-events-none z-[9999] mix-blend-difference"
+        className="hidden md:block fixed top-0 left-0 w-10 h-10 rounded-full border border-gold/60 pointer-events-none z-[9999] mix-blend-difference"
         style={{ transform: 'translate(-100px, -100px)' }}
       />
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-gold pointer-events-none z-[9999]"
+        className="hidden md:block fixed top-0 left-0 w-2 h-2 rounded-full bg-gold pointer-events-none z-[9999]"
         style={{ transform: 'translate(-100px, -100px)' }}
       />
     </>
