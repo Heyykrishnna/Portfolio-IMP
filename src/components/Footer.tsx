@@ -27,7 +27,7 @@ export default function Footer() {
           {[
             { label: 'Instagram', href: 'https://instagram.com' },
             { label: 'Dribbble', href: 'https://dribbble.com' },
-            { label: 'Twitter', href: 'https://twitter.com' },
+            { label: 'Github', href: 'https://github.com/Heyykrishnna' },
             { label: 'LinkedIn', href: 'https://linkedin.com' },
           ].map(s => (
             <a
@@ -59,12 +59,12 @@ export default function Footer() {
             khandelwalyatharth39@gmail.com
           </a>
           <a
-            href="https://twitter.com"
+            href="https://github.com/Heyykrishnna"
             target="_blank"
             rel="noreferrer"
             className="font-body text-[15px] text-cream-dim hover:text-cream transition-colors duration-300 w-fit block"
           >
-            @Yatharth
+            @Heyykrishnna
           </a>
         </div>
       </div>

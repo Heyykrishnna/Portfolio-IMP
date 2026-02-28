@@ -31,7 +31,7 @@ export default function Contact() {
 
   const contactItems = [
     { label: 'Email', value: 'khandelwalyatharth39@gmail.com', href: 'mailto:khandelwalyatharth39@gmail.com', sub: 'Fastest response' },
-    { label: 'Twitter', value: '@Yatharth', href: 'https://twitter.com', sub: 'For quick chats' },
+    { label: 'GitHub', value: '@Heyykrishnna', href: 'https://github.com/Heyykrishnna', sub: 'For quick chats' },
     { label: 'LinkedIn', value: 'Yatharth', href: 'https://linkedin.com', sub: 'Professional network' },
     { label: 'Dribbble', value: 'Yatharth', href: 'https://dribbble.com', sub: 'Design showcase' },
   ];

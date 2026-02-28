@@ -411,7 +411,7 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 border-b border-white/10">
             {[
               { label: 'Email', value: 'khandelwalyatharth39@gmail.com', href: 'mailto:khandelwalyatharth39@gmail.com' },
-              { label: 'Twitter', value: '@Yatharth', href: 'https://twitter.com' },
+              { label: 'GitHub', value: '@Heyykrishnna', href: 'https://github.com/Heyykrishnna' },
               { label: 'Response', value: '< 24h', href: null },
               { label: 'Available', value: 'Q2 2026', href: null },
             ].map((item, i) => (
