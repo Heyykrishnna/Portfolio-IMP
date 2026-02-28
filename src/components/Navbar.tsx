@@ -65,13 +65,13 @@ export default function Navbar() {
           </ul>
 
           <button
-            className="md:hidden flex flex-col gap-[5px] w-8 p-1"
+            className="md:hidden flex flex-col gap-[6px] w-12 p-2 items-end"
             onClick={() => setMenuOpen(o => !o)}
             aria-label="Toggle menu"
           >
-            <span className={`block w-full h-px bg-cream transition-transform duration-500 ${menuOpen ? 'translate-y-[6px] rotate-45' : ''}`} />
-            <span className={`block w-full h-px bg-cream transition-all duration-500 ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
-            <span className={`block w-full h-px bg-cream transition-transform duration-500 ${menuOpen ? '-translate-y-[6px] -rotate-45' : ''}`} />
+            <span className={`block w-full h-[1.5px] bg-cream transition-transform duration-500 origin-right ${menuOpen ? '-translate-x-[4px] translate-y-[1px] -rotate-45' : ''}`} />
+            <span className={`block w-full h-[1.5px] bg-cream transition-all duration-500 origin-right ${menuOpen ? 'opacity-0 scale-x-0' : ''}`} />
+            <span className={`block w-full h-[1.5px] bg-cream transition-transform duration-500 origin-right ${menuOpen ? '-translate-x-[4px] -translate-y-[1px] rotate-45' : ''}`} />
           </button>
         </div>
       </nav>

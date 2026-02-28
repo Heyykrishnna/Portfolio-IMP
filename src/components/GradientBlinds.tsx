@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 interface GradientBlindsProps {
@@ -16,12 +16,22 @@ export default function GradientBlinds({
   const blindsRef = useRef<HTMLDivElement[]>([]);
   const mouse = useRef({ x: 0.5, y: 0.5 });
   const rafId = useRef<number>(0);
+  const [effectiveBlinds, setEffectiveBlinds] = useState(numBlinds);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setEffectiveBlinds(window.innerWidth < 768 ? Math.max(4, Math.floor(numBlinds / 2)) : numBlinds);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [numBlinds]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const blinds = blindsRef.current.filter(Boolean);
+    const blinds = blindsRef.current.slice(0, effectiveBlinds).filter(Boolean);
 
     gsap.set(blinds, {
       transformOrigin: 'center center',
@@ -51,7 +61,7 @@ export default function GradientBlinds({
       const { x, y } = mouse.current;
 
       blinds.forEach((blind, i) => {
-        const blindPos = i / (numBlinds - 1);
+        const blindPos = i / (effectiveBlinds - 1) || 0;
         const distFromCursor = Math.abs(blindPos - x);
         const proximity = Math.max(0, 1 - distFromCursor * 2.5);
 
@@ -88,7 +98,7 @@ export default function GradientBlinds({
       container.removeEventListener('mousemove', onMouseMove);
       container.removeEventListener('mouseleave', onMouseLeave);
     };
-  }, [numBlinds]);
+  }, [effectiveBlinds]);
 
   return (
     <div
@@ -97,13 +107,13 @@ export default function GradientBlinds({
       style={{ perspective: '800px' }}
     >
       <div className="absolute inset-0 flex" style={{ transformStyle: 'preserve-3d' }}>
-        {Array.from({ length: numBlinds }).map((_, i) => (
+        {Array.from({ length: effectiveBlinds }).map((_, i) => (
           <div
             key={i}
             ref={el => { if (el) blindsRef.current[i] = el; }}
             className="h-full flex-1 will-change-transform"
             style={{
-              background: `hsl(${25 + (i / numBlinds) * 10}, 30%, ${8 + (i / numBlinds) * 6}%)`,
+              background: `hsl(${25 + (i / effectiveBlinds) * 10}, 30%, ${8 + (i / effectiveBlinds) * 6}%)`,
               transformOrigin: 'center center',
               transition: 'background 0.4s ease',
             }}
