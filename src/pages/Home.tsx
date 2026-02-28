@@ -10,6 +10,7 @@ import MarqueeText from '../components/MarqueeText';
 import ContactForm from '../components/ContactForm';
 import RevealOnScroll from '../components/RevealOnScroll';
 import GradientBlinds from '../components/GradientBlinds';
+import { Keyboard } from "@/components/ui/keyboard";
 
 gsap.registerPlugin(ScrollTrigger); 
 
@@ -389,6 +390,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="flex min-h-96 w-full items-center justify-center py-10 md:min-h-180">
+        <Keyboard enableSound />
+      </div>
 
       <section className="relative border-t border-black-border overflow-hidden" style={{ background: '#000000' }}>
         <div className="noise-overlay" />
