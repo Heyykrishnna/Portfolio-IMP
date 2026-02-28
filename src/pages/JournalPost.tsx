@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { journalPosts } from '../data/journal';
 import RevealOnScroll from '../components/RevealOnScroll';
@@ -8,8 +7,6 @@ export default function JournalPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = journalPosts.find(p => p.slug === slug);
   const otherPosts = journalPosts.filter(p => p.slug !== slug).slice(0, 2);
-
-  useEffect(() => { window.scrollTo(0, 0); }, [slug]);
 
   if (!post) return <Navigate to="/journal" replace />;
 
@@ -58,8 +55,9 @@ export default function JournalPost() {
                     <div className="flex flex-col gap-4">
                       {section.heading && (
                         <h2
+                          id={`section-${i}`}
                           className="font-display font-semibold text-cream"
-                          style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', letterSpacing: '-0.015em', lineHeight: 1.2 }}
+                          style={{ fontSize: 'clamp(20px, 2.5vw, 28px)', letterSpacing: '-0.015em', lineHeight: 1.2, scrollMarginTop: '120px' }}
                         >
                           {section.heading}
                         </h2>
@@ -87,13 +85,20 @@ export default function JournalPost() {
                 <div className="p-7 border border-black-border rounded-sm bg-black-mid">
                   <p className="tag mb-5">In This Article</p>
                   <ul className="list-none flex flex-col gap-3">
-                    {post.content.filter(s => s.heading).map((s, i) => (
+                    {post.content.map((s, i) => s.heading ? (
                       <li key={i}>
-                        <span className="body-sm text-[13px] hover:text-cream transition-colors duration-300 cursor-default leading-snug block">
+                        <a 
+                          href={`#section-${i}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById(`section-${i}`)?.scrollIntoView({ behavior: 'smooth' });
+                          }}
+                          className="body-sm text-[13px] hover:text-cream transition-colors duration-300 cursor-pointer leading-snug block"
+                        >
                           {s.heading}
-                        </span>
+                        </a>
                       </li>
-                    ))}
+                    ) : null)}
                   </ul>
                 </div>
                 <div className="p-7 border border-black-border rounded-sm bg-black-mid">

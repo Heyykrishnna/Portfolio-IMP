@@ -42,7 +42,7 @@ export default function Contact() {
         ref={heroRef}
         className="relative min-h-[90vh] flex flex-col justify-end overflow-hidden border-b border-black-border"
       >
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #080808 0%, #0f0b07 40%, #1a1208 70%, #080808 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 70% at 15% 60%, rgba(201,168,124,0.09) 0%, transparent 65%)' }} />
         <div className="noise-overlay" />
         <HeroCursorGlow size={750} intensity={0.15} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 30%, rgba(201,168,124,0.08) 0%, transparent 60%)' }} />
