@@ -11,6 +11,7 @@ import ContactForm from '../components/ContactForm';
 import RevealOnScroll from '../components/RevealOnScroll';
 import GradientBlinds from '../components/GradientBlinds';
 import { Keyboard } from "@/components/ui/keyboard";
+import Testimonials from '../components/Testimonials';
 
 gsap.registerPlugin(ScrollTrigger); 
 
@@ -366,8 +367,19 @@ export default function Home() {
           <HomeServices />
         </div>
       </section>
+      <section className="border-t md:pb-20 border-black-border overflow-hidden relative">
+        <div className="noise-overlay" />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201,168,124,0.04) 0%, transparent 100%)' }} />
+        <div className="container-main relative z-10">
+          <RevealOnScroll delay={150}>
+            <div className="flex w-full items-center justify-center">
+              <Keyboard enableSound showPreview />
+            </div>
+          </RevealOnScroll>
+        </div>
+      </section>
 
-      <section className="py-5">
+      <section className="py-5 border-t border-black-border">
         <MarqueeText text="Journal · Insights · Trends · Design Thinking · Dev Notes · Creative Process · Case Studies · Industry · Perspective · Experiments · Ideas · Stories" speed={100} separator="/" />
       </section>
 
@@ -391,8 +403,9 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="flex min-h-96 w-full items-center justify-center py-10 md:min-h-180">
-        <Keyboard enableSound />
+      {/* Add dark background class to blend with the surrounding sections */}
+      <div className="bg-black border-t border-black-border">
+        <Testimonials />
       </div>
 
       <section className="relative border-t border-black-border overflow-hidden" style={{ background: '#000000' }}>
