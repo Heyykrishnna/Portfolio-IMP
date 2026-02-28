@@ -256,6 +256,12 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
         >
           Thank you,<br />I'll be in touch soon.
         </h3>
+        <h3
+          className="font-display font-semibold text-cream"
+          style={{ fontSize: 'clamp(24px, 3vw, 36px)', letterSpacing: '-0.02em', lineHeight: 1.2 }}
+        >
+          Check the MailBox for further details.
+        </h3>
         <p className="body-sm opacity-50">Usually within 24 hours.</p>
       </motion.div>
     );
