@@ -21,19 +21,19 @@ export const PROJECT_IMAGES: Record<
   { coverImage?: string; galleryImages?: [string?, string?, string?, string?] }
 > = {
   elysiar: {
-    coverImage: '',
+    coverImage: 'https://ik.imagekit.io/jbckhvkvo/ELY.png',
     galleryImages: ['', '', '', ''],
   },
   'revox-forms': {
-    coverImage: '',
+    coverImage: 'https://ik.imagekit.io/jbckhvkvo/REV.png',
     galleryImages: ['', '', '', ''],
   },
-  'every-second': {
-    coverImage: '',
+  'neutron': {
+    coverImage: 'https://ik.imagekit.io/jbckhvkvo/NEU.png',
     galleryImages: ['', '', '', ''],
   },
-  'timeless-mastery': {
-    coverImage: '',
+  'quantica': {
+    coverImage: 'https://ik.imagekit.io/jbckhvkvo/QUA.png',
     galleryImages: ['', '', '', ''],
   },
 };
