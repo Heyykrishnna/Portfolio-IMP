@@ -19,10 +19,11 @@ export default function JournalPost() {
           style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 60%, rgba(201,168,124,0.06) 0%, transparent 70%)' }} />
         <div className="container-main relative z-10">
           <div className="mb-6" style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards', opacity: 0 }}>
-            <Link to="/journal" className="arrow-link text-cream-dim hover:text-cream" style={{ direction: 'rtl' }}>
-              <span style={{ direction: 'ltr', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-                ← Back to Journal
-              </span>
+            <Link
+              to="/journal"
+              className="inline-flex items-center gap-2 text-[13px] font-medium uppercase tracking-[0.08em] text-cream-dim hover:text-cream hover:gap-3 transition-all duration-300"
+            >
+              ← Back to Journal
             </Link>
           </div>
           <div style={{ animation: 'revealIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s forwards', opacity: 0 }}>
