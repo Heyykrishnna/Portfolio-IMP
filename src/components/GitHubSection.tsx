@@ -245,7 +245,7 @@ export default function GitHubSection() {
             )}
 
             {langStats.length > 0 && (
-              <RevealOnScroll>
+              <RevealOnScroll delay={100}>
                 <div className="mb-12">
                   <p className="tag mb-4">Top Languages</p>
                   <div className="flex rounded-sm overflow-hidden h-2.5 gap-px mb-4">
@@ -280,15 +280,6 @@ export default function GitHubSection() {
                 </div>
               </RevealOnScroll>
             )}
-
-            <RevealOnScroll>
-              <p className="tag mb-6">Top Repositories</p>
-            </RevealOnScroll>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {repos.map((repo, i) => (
-                <RepoCard key={repo.id} repo={repo} index={i} />
-              ))}
-            </div>
           </>
         )}
       </div>

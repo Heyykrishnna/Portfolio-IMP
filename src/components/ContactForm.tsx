@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '../lib/supabase';
+import emailjs from '@emailjs/browser';
 
 interface ContactFormProps {
   variant?: 'default' | 'home';
@@ -147,6 +149,7 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
   const [selected, setSelected] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
 
   const handleChange = (k: keyof Fields, v: string) => {
@@ -161,10 +164,69 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+
+    if (!fields.name.trim() || !fields.email.trim() || !fields.message.trim()) {
+      setError('Please fill in all required fields (Name, Email, Message).');
+      return;
+    }
+    if (!isHome && !fields.budget.trim()) {
+      setError('Please enter an estimated project budget.');
+      return;
+    }
+    if (selected.length === 0) {
+      setError('Please select at least one service.');
+      return;
+    }
+
     setSubmitting(true);
-    await new Promise(r => setTimeout(r, 900));
-    setSubmitting(false);
-    setSubmitted(true);
+    
+    try {
+      const { error: supabaseError } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: fields.name,
+            email: fields.email,
+            budget: fields.budget,
+            message: fields.message,
+            services: selected,
+            source: variant
+          }
+        ]);
+        
+      if (supabaseError) throw new Error('Failed to save to database: ' + supabaseError.message);
+      if (
+        !import.meta.env.VITE_EMAILJS_SERVICE_ID ||
+        !import.meta.env.VITE_EMAILJS_TEMPLATE_ID ||
+        !import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ) {
+         throw new Error('EmailJS variables are missing. Data saved, but email not sent.');
+      }
+      
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: fields.name,
+          from_email: fields.email,
+          budget: fields.budget,
+          services: selected.join(', '),
+          message: fields.message,
+          reply_to: fields.email,
+        },
+        {
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        }
+      );
+
+      setSubmitted(true);
+    } catch (err: any) {
+      const errorMsg = err?.text || err?.message || 'Something went wrong. Please try again.';
+      setError(`Error: ${errorMsg}`);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -272,6 +334,16 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
       )}
 
       <FloatingTextarea value={fields.message} onChange={handleChange} />
+
+      {error && (
+        <motion.p 
+          initial={{ opacity: 0, height: 0 }} 
+          animate={{ opacity: 1, height: 'auto' }} 
+          className="text-red-400 text-sm font-body -mt-2"
+        >
+          {error}
+        </motion.p>
+      )}
 
       <div className="pt-2 flex items-center justify-between gap-4 flex-wrap">
         <p className="body-sm opacity-30 text-[11px]">
