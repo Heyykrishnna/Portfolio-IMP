@@ -219,9 +219,6 @@ export default function Home() {
               <p className="body-lg flex-1">
                 Blending creativity with strategy to craft digital experiences that captivate, engage, and convert.
               </p>
-              <Link to="/work" className="btn-primary flex-shrink-0">
-                View Work
-              </Link>
             </div>
           </div>
 
@@ -230,12 +227,9 @@ export default function Home() {
             style={{ animation: 'revealIn 1s cubic-bezier(0.16,1,0.3,1) 0.75s forwards', opacity: 0 }}
           >
             <div className="flex gap-10">
-              {[{ num: '25+', label: 'Projects' }, { num: '3+', label: 'Years' }].map(s => (
-                <div key={s.label}>
-                  <p className="font-display text-3xl font-semibold text-cream" style={{ letterSpacing: '-0.02em' }}>{s.num}</p>
-                  <p className="body-sm mt-1">{s.label}</p>
-                </div>
-              ))}
+              <Link to="/work" className="btn-primary flex-shrink-0">
+                View Work
+              </Link>
             </div>
             <div className="hidden sm:flex items-center gap-3">
               <div className="w-px h-8 bg-white/20" />
