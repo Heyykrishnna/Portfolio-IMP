@@ -25,10 +25,10 @@ export default function Footer() {
 
         <div className="p-8 lg:p-10 lg:border-r border-black-border flex flex-col gap-5">
           {[
-            { label: 'Instagram', href: 'https://instagram.com' },
+            { label: 'Instagram', href: 'https://www.instagram.com/heyy_krishnna/' },
             { label: 'Dribbble', href: 'https://dribbble.com' },
             { label: 'Github', href: 'https://github.com/Heyykrishnna' },
-            { label: 'LinkedIn', href: 'https://linkedin.com' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/khandelwalyatharth' },
           ].map(s => (
             <a
               key={s.label}
