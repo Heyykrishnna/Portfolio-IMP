@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 const testimonials = [
     {
     text: "Working with Yatharth completely transformed our digital presence. From branding to full stack development, every detail was thoughtfully executed and aligned with our business goals.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "https://randomuser.me/api/portraits/men/34.jpg",
     name: "Arjun Mehta",
     role: "Founder, Startup Venture"
     },

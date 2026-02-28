@@ -367,7 +367,7 @@ export default function Home() {
           <HomeServices />
         </div>
       </section>
-      <section className="border-t md:pb-20 border-black-border overflow-hidden relative">
+      <section className="border-t md:pb-20 hidden md:block border-black-border overflow-hidden relative">
         <div className="noise-overlay" />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201,168,124,0.04) 0%, transparent 100%)' }} />
         <div className="container-main relative z-10">

@@ -346,7 +346,7 @@ export default function ContactForm({ variant = 'default' }: ContactFormProps) {
       )}
 
       <div className="pt-2 flex items-center justify-between gap-4 flex-wrap">
-        <p className="body-sm opacity-30 text-[11px]">
+        <p className="body-sm opacity-70 text-[11px]">
           No spam. Just honest conversation.
         </p>
         <button
