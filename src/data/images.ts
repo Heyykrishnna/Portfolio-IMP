@@ -20,12 +20,12 @@ export const PROJECT_IMAGES: Record<
   string,
   { coverImage?: string; galleryImages?: [string?, string?, string?, string?] }
 > = {
-  elysiar: {
-    coverImage: 'https://ik.imagekit.io/jbckhvkvo/ELY.png',
+  'elysiar': {
+    coverImage: 'https://i.pinimg.com/736x/51/29/07/5129075af0f53791c7563c8151d8d91a.jpg',
     galleryImages: ['', '', '', ''],
   },
   'revox-forms': {
-    coverImage: 'https://ik.imagekit.io/jbckhvkvo/REV.png',
+    coverImage: 'https://ik.imagekit.io/jbckhvkvo/REV.png?updatedAt=1772290582277',
     galleryImages: ['', '', '', ''],
   },
   'neutron': {
@@ -34,6 +34,14 @@ export const PROJECT_IMAGES: Record<
   },
   'quantica': {
     coverImage: 'https://ik.imagekit.io/jbckhvkvo/QUA.png',
+    galleryImages: ['', '', '', ''],
+  },
+  'openrouter': {
+    coverImage: 'https://i.pinimg.com/1200x/b5/0c/f6/b50cf6a4d5030125120340f55112fc4e.jpg',
+    galleryImages: ['', '', '', ''],
+  },
+  'vegah': {
+    coverImage: 'https://i.pinimg.com/736x/69/6c/74/696c74e0acf85498e974b862f68f1be4.jpg',
     galleryImages: ['', '', '', ''],
   },
 };
