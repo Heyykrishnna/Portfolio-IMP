@@ -245,30 +245,34 @@ export default function Home() {
         <MarqueeText text="Work · Design · Development · Branding · Full Stack · UI/UX · Motion · Strategy · Creative · Digital · Innovation · Craft" speed={100} />
       </section>
 
-      <section className="section-pad border-t border-black-border">
-        <div className="container-main">
+      <section className="section-pad border-t border-black-border relative overflow-hidden bg-black text-cream">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,124,0.03) 0%, transparent 100%)' }} />
+        <div className="container-main relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 gsap-fade-up">
             <div>
-              <span className="tag block mb-4">Selected Work</span>
-              <h2 className="heading-lg">Recent Projects</h2>
+              <h2 className="heading-lg font-display">
+                Recent <em className="italic text-gold font-light">Projects.</em>
+              </h2>
             </div>
             <Link to="/work" className="arrow-link flex-shrink-0 mb-2">View All Work</Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 gsap-stagger-children">
-            {projects.slice(0, 4).map((project, i) => (
-              <ProjectCard key={project.slug} project={project} index={i} variant={i === 0 ? 'featured' : 'default'} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 gsap-stagger-children">
+            {projects.slice(0, 5).map((project, i) => (
+              <div key={project.slug} className={i === 0 ? "md:col-span-2" : "md:col-span-1"}>
+                <ProjectCard project={project} index={i} variant={i === 0 ? 'featured' : 'default'} />
+              </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center gsap-fade-up">
+          <div className="mt-16 text-center gsap-fade-up">
             <p className="body-sm">
               Discover <span className="text-gold font-semibold">25+</span> more projects on my{' '}
               <a 
                 href="https://github.com/Heyykrishnna" 
                 target="_blank" 
                 rel="noreferrer"
-                className="text-cream hover:text-gold transition-colors duration-300 underline decoration-white/20 underline-offset-4"
+                className="text-cream hover:text-gold transition-colors duration-300 underline decoration-white/20 hover:decoration-gold/50 underline-offset-4"
               >
                 GitHub Profile
               </a>.
