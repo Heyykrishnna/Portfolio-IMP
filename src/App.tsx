@@ -13,10 +13,12 @@ import JournalPost from './pages/JournalPost';
 import ProjectDetail from './pages/ProjectDetail';
 import NotFound from './pages/NotFound';
 import './App.css';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
   return (
     <>
+      <Analytics />
       <ScrollToTop />
       <SmoothScroll />
       <CustomCursor />
