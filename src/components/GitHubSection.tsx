@@ -4,7 +4,7 @@ import RevealOnScroll from './RevealOnScroll';
 
 const GITHUB_CONFIG = {
   username: "Heyykrishnna",
-  token: import.meta.env.VITE_GITHUB_TOKEN || "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",
+  token: import.meta.env.VITE_GITHUB_TOKEN,
 };
 
 interface GHUser {
