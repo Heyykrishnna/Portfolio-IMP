@@ -112,10 +112,6 @@ export default function About() {
                     />
                   )}
                 </div>
-                <div className="absolute -bottom-6 -right-2 sm:-right-6 p-4 sm:p-6 bg-black border border-black-border rounded-sm">
-                  <p className="font-display text-4xl sm:text-5xl font-semibold text-gold" style={{ letterSpacing: '-0.03em' }}>3+</p>
-                  <p className="body-sm text-[12px] sm:text-[14px] mt-1">Years crafting<br />digital excellence</p>
-                </div>
               </div>
             </RevealOnScroll>
           </div>

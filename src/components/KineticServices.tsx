@@ -13,10 +13,10 @@ interface Service {
 const SERVICES: Service[] = [
   {
     num: '01',
-    title: 'Strategy',
-    desc: 'Data-informed thinking meets creative vision. I define brand positioning, audience personas, and content hierarchies that make every design decision purposeful.',
-    image: SERVICE_IMAGES.strategy,
-    tag: 'Research & Planning',
+    title: 'Event Management',
+    desc: 'I organize and execute events that leave a lasting impression. From intimate gatherings to large-scale conferences, I handle every detail to ensure a seamless and memorable experience for attendees.',
+    image: SERVICE_IMAGES.management,
+    tag: 'Management',
   },
   {
     num: '02',

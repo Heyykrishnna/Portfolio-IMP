@@ -2,8 +2,8 @@ export const ABOUT_PROFILE_IMAGE =
   'https://ik.imagekit.io/puc7mghnh/ChatGPT%20Image%20Feb%2021,%202026,%2003_13_46%20PM.png';
 
 export const SERVICE_IMAGES = {
-  strategy:
-    'https://i.pinimg.com/1200x/15/c5/37/15c53758b21cbde03f1681faf05c9d05.jpg',
+  management:
+    'https://i.pinimg.com/736x/f2/e8/96/f2e8961aef0275b12a0ea8814acdf4c3.jpg',
   webDesign:
     'https://i.pinimg.com/1200x/ff/e2/41/ffe241d200d8f6e00c912f6a490f894a.jpg',
   branding:

@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import RevealOnScroll from './RevealOnScroll';
 
-const GITHUB_USERNAME = 'Heyykrishnna';
+const GITHUB_CONFIG = {
+  username: "Heyykrishnna",
+  token: import.meta.env.VITE_GITHUB_TOKEN || "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",
+};
 
 interface GHUser {
   name: string;
   bio: string;
-  public_repos: number;
+  totalContributions: number;
   followers: number;
   following: number;
   avatar_url: string;
@@ -45,8 +48,6 @@ const LANG_COLORS: Record<string, string> = {
   Svelte: '#ff3e00',
 };
 
-
-
 function StatPill({ value, label }: { value: number | string; label: string }) {
   return (
     <div className="flex flex-col items-center px-6 py-4 border border-black-border rounded-sm bg-black-mid hover:bg-black-soft hover:border-gray-mid transition-all duration-300">
@@ -58,8 +59,6 @@ function StatPill({ value, label }: { value: number | string; label: string }) {
   );
 }
 
-
-
 export default function GitHubSection() {
   const [user, setUser] = useState<GHUser | null>(null);
   const [loading, setLoading] = useState(true);
@@ -68,31 +67,61 @@ export default function GitHubSection() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [userRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}`),
-          fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=100`),
-        ]);
-        const userData: GHUser = await userRes.json();
-        const reposData: GHRepo[] = await reposRes.json();
+        const headers = {
+          Authorization: `bearer ${GITHUB_CONFIG.token}`,
+          "Content-Type": "application/json",
+        };
 
-        reposData
-          .filter(r => !r.name.toLowerCase().includes('fork'))
-          .sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime())
-          .slice(0, 6);
+        const contributionsQuery = {
+          query: `
+            query($username: String!) {
+              user(login: $username) {
+                contributionsCollection {
+                  contributionCalendar {
+                    totalContributions
+                  }
+                }
+              }
+            }
+          `,
+          variables: { username: GITHUB_CONFIG.username },
+        };
+
+        const [userRes, reposRes, contributionsRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${GITHUB_CONFIG.username}`, { headers }),
+          fetch(`https://api.github.com/users/${GITHUB_CONFIG.username}/repos?sort=pushed&per_page=100`, { headers }),
+          fetch("https://api.github.com/graphql", {
+            method: "POST",
+            headers,
+            body: JSON.stringify(contributionsQuery),
+          }),
+        ]);
+
+        const userData = await userRes.json();
+        const reposData: GHRepo[] = await reposRes.json();
+        const contributionsData = await contributionsRes.json();
+
+        const totalContributions = contributionsData.data?.user?.contributionsCollection?.contributionCalendar?.totalContributions || 0;
 
         const langMap: Record<string, number> = {};
-        reposData.forEach(r => {
-          if (r.language) langMap[r.language] = (langMap[r.language] ?? 0) + 1;
-        });
+        if (Array.isArray(reposData)) {
+          reposData.forEach(r => {
+            if (r.language) langMap[r.language] = (langMap[r.language] ?? 0) + 1;
+          });
+        }
+        
         const sortedLangs = Object.entries(langMap)
           .sort((a, b) => b[1] - a[1])
           .slice(0, 5)
           .map(([lang, count]) => ({ lang, count }));
 
-        setUser(userData);
+        setUser({
+          ...userData,
+          totalContributions,
+        });
         setLangStats(sortedLangs);
-      } catch {
-        // no-op
+      } catch (error) {
+        console.error("Error fetching GitHub data:", error);
       } finally {
         setLoading(false);
       }
@@ -116,7 +145,7 @@ export default function GitHubSection() {
                 rel="noreferrer"
                 className="arrow-link"
               >
-                @{GITHUB_USERNAME}
+                @{GITHUB_CONFIG.username}
               </a>
             )}
           </div>
@@ -147,14 +176,14 @@ export default function GitHubSection() {
                   />
                   <div className="flex-1 min-w-0">
                     <p className="font-display font-semibold text-cream text-lg leading-tight" style={{ letterSpacing: '-0.01em' }}>
-                      {user.name || GITHUB_USERNAME}
+                      {user.name || GITHUB_CONFIG.username}
                     </p>
                     {user.bio && (
                       <p className="body-sm opacity-60 mt-1 line-clamp-2">{user.bio}</p>
                     )}
                   </div>
                   <div className="flex gap-3 flex-wrap">
-                    <StatPill value={user.public_repos} label="Repos" />
+                    <StatPill value={user.totalContributions} label="Contributions" />
                     <StatPill value={user.followers} label="Followers" />
                     <StatPill value={user.following} label="Following" />
                   </div>
@@ -177,7 +206,7 @@ export default function GitHubSection() {
                           width: `${(count / totalLangs) * 100}%`,
                           background: LANG_COLORS[lang] ?? '#888',
                           transformOrigin: 'left',
-                        }}
+                         }}
                       />
                     ))}
                   </div>

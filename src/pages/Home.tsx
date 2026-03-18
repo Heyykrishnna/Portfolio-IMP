@@ -258,9 +258,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 gsap-stagger-children">
-            {projects.slice(0, 5).map((project, i) => (
-              <div key={project.slug} className={i === 0 ? "md:col-span-2" : "md:col-span-1"}>
-                <ProjectCard project={project} index={i} variant={i === 0 ? 'featured' : 'default'} />
+            {projects.slice(0, 4).map((project, i) => (
+              <div key={project.slug}>
+                <ProjectCard project={project} index={i}/>
               </div>
             ))}
           </div>
