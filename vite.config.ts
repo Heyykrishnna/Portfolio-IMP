@@ -16,6 +16,12 @@ export default defineConfig({
     },
   },
   server: {
-    port: 8080,
+    proxy: {
+      '/api': {
+        target: 'https://portfolio-backend-production-410a.up.railway.app',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
 })
