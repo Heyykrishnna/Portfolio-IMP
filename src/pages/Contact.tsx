@@ -33,7 +33,7 @@ export default function Contact() {
     { label: 'Email', value: 'khandelwalyatharth39@gmail.com', href: 'mailto:khandelwalyatharth39@gmail.com', sub: 'Fastest response' },
     { label: 'GitHub', value: '@Heyykrishnna', href: 'https://github.com/Heyykrishnna', sub: 'For quick chats' },
     { label: 'LinkedIn', value: 'Yatharth', href: 'https://www.linkedin.com/in/khandelwalyatharth', sub: 'Professional network' },
-    { label: 'Dribbble', value: 'Yatharth', href: 'https://dribbble.com', sub: 'Design showcase' },
+    { label: 'Twitter - X', value: 'Yatharth', href: 'https://x.com/hey_krishnna', sub: 'For quick chats' },
   ];
 
   return (
