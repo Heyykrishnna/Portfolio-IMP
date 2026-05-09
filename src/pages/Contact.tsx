@@ -22,7 +22,7 @@ export default function Contact() {
             ease: 'power3.out',
             scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
           }
-        );
+        ); 
       });
     });
 

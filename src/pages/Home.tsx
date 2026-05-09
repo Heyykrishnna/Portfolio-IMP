@@ -354,7 +354,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-t border-b border-black-border divide-x divide-black-border">
-          {['Elysiar', 'Revox', 'Studio X', 'Minimal Co.', 'Neutron', 'Hastakala'].map(client => (
+          {['Elysiar', 'Revox', 'Studio X', 'Minimal Co.', 'Neutron', 'Dev Club'].map(client => (
             <div key={client} className="h-24 flex items-center justify-center px-4 group cursor-default">
               <p className="font-display text-lg font-medium text-cream-dim group-hover:text-cream opacity-30 group-hover:opacity-80 transition-all duration-400 text-center" style={{ letterSpacing: '-0.01em' }}>
                 {client}

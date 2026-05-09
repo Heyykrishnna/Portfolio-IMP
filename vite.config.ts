@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { sendEmailDevApiPlugin } from './vite-plugin-send-email-dev'
 
 export default defineConfig({
   plugins: [
+    sendEmailDevApiPlugin(),
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler']],
