@@ -92,9 +92,8 @@ const treeData = [
           { id: "4-2-14", label: "PageTransition.tsx" },
           { id: "4-2-15", label: "ProjectCard.tsx" },
           { id: "4-2-16", label: "RevealOnScroll.tsx" },
-          { id: "4-2-17", label: "ScrollToTop.tsx" },
-          { id: "4-2-18", label: "SmoothScroll.tsx" },
-          { id: "4-2-19", label: "Testimonials.tsx" },
+          { id: "4-2-17", label: "SmoothScroll.tsx" },
+          { id: "4-2-18", label: "Testimonials.tsx" },
         ],
       },
 

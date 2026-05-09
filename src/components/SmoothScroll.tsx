@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,6 +7,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScroll() {
+  const lenisRef = useRef<Lenis | null>(null);
+  const { pathname, search } = useLocation();
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.4,
@@ -13,6 +17,8 @@ export default function SmoothScroll() {
       smoothWheel: true,
       touchMultiplier: 1.5,
     });
+
+    lenisRef.current = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -26,8 +32,18 @@ export default function SmoothScroll() {
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    const lenis = lenisRef.current;
+    if (!lenis) return;
+    lenis.scrollTo(0, { immediate: true });
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+  }, [pathname, search]);
 
   return null;
 }
