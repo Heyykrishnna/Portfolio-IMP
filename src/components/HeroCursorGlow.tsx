@@ -63,7 +63,7 @@ export default function HeroCursorGlow({
           width: size,
           height: size,
           background: `radial-gradient(circle, rgba(${color},${intensity}) 0%, rgba(${color},${intensity * 0.4}) 40%, transparent 70%)`,
-          filter: 'blur(40px)',
+          filter: 'blur(50px)',
           mixBlendMode: 'screen',
           willChange: 'transform, opacity',
         }}
