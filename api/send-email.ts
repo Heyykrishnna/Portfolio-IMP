@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { sendContactEmail } from '../server/sendContactEmail';
+import { sendContactEmail } from '../server/sendContactEmail.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
